@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&[data-theme=dark], &[data-theme=dark] *, :where([data-theme=dark] *));
+
+body > #app,
+#theme-transition-clip {
+  color-scheme: light;
+  --color-global-bg: oklch(98.48% 0 0);
+  --color-global-text: oklch(26.99% 0.0096 235.05);
+  --color-secondary-bg: oklch(94.66% 0 0);
+  --color-link: oklch(0.1149 0 0);
+  --color-accent: oklch(0.1149 0 0);
+  --color-accent-2: oklch(18.15% 0 0);
+  --color-quote: oklch(0.1149 0 0);
+}
+
+body > #app[data-theme='dark'],
+#theme-transition-clip[data-theme='dark'] {
+  color-scheme: dark;
+  --color-global-bg: oklch(0.1149 0 0);
+  --color-global-text: oklch(83.54% 0 264);
+  --color-secondary-bg: oklch(18.15% 0 0);
+  --color-link: oklch(0.9851 0 0);
+  --color-accent: oklch(0.9851 0 0);
+  --color-accent-2: oklch(94.66% 0 0);
+  --color-quote: oklch(0.9851 0 0);
+}
+
+@theme {
+  --color-global-bg: var(--color-global-bg);
+  --color-global-text: var(--color-global-text);
+  --color-secondary-bg: var(--color-secondary-bg);
+  --color-link: var(--color-link);
+  --color-accent: var(--color-accent);
+  --color-accent-2: var(--color-accent-2);
+  --color-quote: var(--color-quote);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 150ms ease-out;
+}
+
+.theme-clip {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.theme-clip.theme-animation {
+  animation: theme-expand-animation 0.6s ease-in forwards;
+}
+
+@keyframes theme-expand-animation {
+  0% {
+    clip-path: circle(0rem at center);
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: 0;
+  }
+  100% {
+    clip-path: circle(150vmax at center);
+    width: 300vmax;
+    height: 300vmax;
+    bottom: calc(-150vmax);
+    left: calc(-150vmax);
+  }
+}
+
+.no-theme-transition * {
+  transition: none !important;
+}
