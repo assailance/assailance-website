@@ -8,6 +8,7 @@ body > #app,
   --color-global-bg: oklch(98.48% 0 0);
   --color-global-text: oklch(26.99% 0.0096 235.05);
   --color-secondary-bg: oklch(94.66% 0 0);
+  --color-toast-bg: oklch(0.8822 0 0 / 60%);
   --color-link: oklch(0.1149 0 0);
   --color-accent: oklch(0.1149 0 0);
   --color-accent-2: oklch(18.15% 0 0);
@@ -20,6 +21,7 @@ body > #app[data-theme='dark'],
   --color-global-bg: oklch(0.1149 0 0);
   --color-global-text: oklch(83.54% 0 264);
   --color-secondary-bg: oklch(18.15% 0 0);
+  --color-toast-bg: oklch(0.2727 0 0 / 70%);
   --color-link: oklch(0.9851 0 0);
   --color-accent: oklch(0.9851 0 0);
   --color-accent-2: oklch(94.66% 0 0);
@@ -30,6 +32,7 @@ body > #app[data-theme='dark'],
   --color-global-bg: var(--color-global-bg);
   --color-global-text: var(--color-global-text);
   --color-secondary-bg: var(--color-secondary-bg);
+  --color-toast-bg: var(--color-toast-bg);
   --color-link: var(--color-link);
   --color-accent: var(--color-accent);
   --color-accent-2: var(--color-accent-2);

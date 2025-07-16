@@ -3,7 +3,9 @@ import { onMounted, onUnmounted } from 'vue'
 
 import Footer from '@/components/layout/Footer.vue'
 import Header from '@/components/layout/Header.vue'
+import ToastContainer from '@/components/layout/ToastContainer.vue'
 import { useTheme } from '@/composables/useTheme.ts'
+import { provideToast } from '@/composables/useToast.ts'
 
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
 const { applyTheme, initTheme } = useTheme()
@@ -22,6 +24,8 @@ onMounted(() => {
 onUnmounted(() => {
   prefersDark.removeEventListener('change', handleSystemTheme)
 })
+
+provideToast()
 </script>
 
 <template>
@@ -31,5 +35,6 @@ onUnmounted(() => {
       <RouterView />
     </main>
     <Footer />
+    <ToastContainer />
   </div>
 </template>
