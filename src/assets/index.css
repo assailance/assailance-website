@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&[data-theme=dark], &[data-theme=dark] *, :where([data-theme=dark] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 body > #app,
 #theme-transition-clip {
