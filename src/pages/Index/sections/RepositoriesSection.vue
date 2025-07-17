@@ -19,8 +19,12 @@ import { Card, CardList } from '@/components/ui/card-list'
     <!-- /Repositories -->
     <!-- View all -->
     <div class="mt-4 sm:text-end">
-      <a aria-label="View all repositories" class="sm:hover:text-accent transition-colors duration-200" href="https://github.com/assailance?tab=repositories">
-        View all →
+      <a
+        aria-label="View all repositories"
+        class="group sm:hover:text-accent transition-colors duration-200"
+        href="https://github.com/assailance?tab=repositories"
+      >
+        View all <span class="inline-block -translate-y-0.5 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
       </a>
     </div>
     <!-- /View all -->
