@@ -4,14 +4,6 @@ import SunIcon from '@/components/icons/SunIcon.vue'
 import { useTheme } from '@/composables/useTheme.ts'
 
 const { toggleTheme } = useTheme()
-
-const goToProjects = () => {
-  const projects = document.getElementById('projects') as HTMLElement
-  window.scrollTo({
-    top: projects.offsetTop || 0,
-    behavior: 'smooth'
-  })
-}
 </script>
 
 <template>
