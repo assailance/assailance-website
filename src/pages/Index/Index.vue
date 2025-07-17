@@ -7,7 +7,7 @@ import TechStackSection from '@/pages/Index/sections/TechStackSection.vue'
 
 <template>
   <InfoSection />
-  <TechStackSection />
   <ProjectsSection />
+  <TechStackSection />
   <RepositoriesSection />
 </template>
