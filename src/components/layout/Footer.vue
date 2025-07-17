@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { goToSection } from '@/utils/scroll.util.ts'
+</script>
 
 <template>
   <footer
@@ -9,7 +11,7 @@
     <nav aria-label="More on this site" class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500">
       <!-- Links -->
       <RouterLink :to="{ name: 'index' }" class="hover:text-global-text px-4 py-2 hover:underline sm:py-0">Home</RouterLink>
-      <a class="hover:text-global-text px-4 py-2 hover:underline sm:py-0" href="/about/"> About </a>
+      <span @click="goToSection('projects')" role="link" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Projects</span>
       <!-- /Links -->
     </nav>
     <!-- /Navigation -->
