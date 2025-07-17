@@ -42,8 +42,8 @@ const { toggleTheme } = useTheme()
         class="text-accent bg-global-bg/85 sm:divide-accent/75 absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-md py-4 shadow backdrop-blur-sm group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:divide-x sm:rounded-none sm:bg-transparent sm:py-0 sm:shadow-none sm:backdrop-blur-none"
       >
         <RouterLink :to="{ name: 'index' }" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Home</RouterLink>
-        <span @click="goToSection('projects')" role="link" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Projects</span>
-        <span @click="goToSection('stack')" role="link" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Stack</span>
+        <span @click="goToSection('projects')" role="link" class="cursor-pointer px-4 py-4 underline-offset-2 hover:underline sm:py-0">Projects</span>
+        <span @click="goToSection('stack')" role="link" class="cursor-pointer px-4 py-4 underline-offset-2 hover:underline sm:py-0">Stack</span>
       </nav>
       <!-- /Navigation -->
     </div>
