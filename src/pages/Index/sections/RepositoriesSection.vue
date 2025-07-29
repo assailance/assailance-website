@@ -23,6 +23,7 @@ import { Card, CardList } from '@/components/ui/card-list'
         aria-label="View all repositories"
         class="group sm:hover:text-accent transition-colors duration-200"
         href="https://github.com/assailance?tab=repositories"
+        target="_blank"
       >
         View all <span class="inline-block -translate-y-0.5 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
       </a>
