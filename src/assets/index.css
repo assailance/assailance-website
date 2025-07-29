@@ -85,3 +85,7 @@ body > #app[data-theme='dark'],
 .no-theme-transition * {
   transition: none !important;
 }
+
+.pressed {
+  transform: scale(0.95);
+}
