@@ -5,3 +5,7 @@ export interface ICardProps {
   externalLink?: string
   tags?: string[]
 }
+
+export interface ICardWithImageProps extends ICardProps {
+  images: string[]
+}
