@@ -32,7 +32,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="mt-16">
+  <section id="stack" class="mt-16">
     <div class="mb-4 flex items-center justify-between">
       <h2 class="text-xl">Tech stack</h2>
       <!-- Tabs -->
