@@ -14,21 +14,19 @@ const { toggleTheme } = useTheme()
       <!-- Logo -->
       <RouterLink :to="{ name: 'index' }" class="inline-flex items-center sm:relative sm:inline-block">
         <img
-          src="@/assets/images/avatar2.webp"
+          src="@/assets/images/dark-avatar.webp"
           alt="assailance"
           loading="eager"
           decoding="async"
-          fetchpriority="auto"
           width="64"
           height="64"
           class="me-4 inline-block size-16 rounded-md sm:absolute sm:start-[-5rem] sm:me-0 sm:h-16 sm:w-16 dark:hidden"
         />
         <img
-          src="@/assets/images/avatar.webp"
+          src="@/assets/images/light-avatar.webp"
           alt="assailance"
           loading="eager"
           decoding="async"
-          fetchpriority="auto"
           width="64"
           height="64"
           class="me-4 size-16 rounded-md not-dark:hidden sm:absolute sm:start-[-5rem] sm:me-0 sm:h-16 sm:w-16"
@@ -48,15 +46,6 @@ const { toggleTheme } = useTheme()
       <!-- /Navigation -->
     </div>
     <!-- /Left -->
-
-    <!-- Search -->
-    <!--    <div class="ms-auto">-->
-    <!--      <button class="hover:text-accent flex size-9 cursor-pointer items-center justify-center rounded-md" aria-keyshortcuts="Control+K Meta+K" data-open-modal="">-->
-    <!--        <SearchIcon />-->
-    <!--        <span class="sr-only">Open Search</span>-->
-    <!--      </button>-->
-    <!--    </div>-->
-    <!-- /Search -->
 
     <!-- Theme -->
     <div class="ms-2 sm:ms-auto">
