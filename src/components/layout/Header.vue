@@ -2,8 +2,18 @@
 import MoonIcon from '@/components/icons/MoonIcon.vue'
 import SunIcon from '@/components/icons/SunIcon.vue'
 import { useTheme } from '@/composables/useTheme.ts'
+import { useToast } from '@/composables/useToast.ts'
 
+const { add } = useToast()
 const { toggleTheme } = useTheme()
+
+const changeTheme = () => {
+  try {
+    toggleTheme()
+  } catch {
+    add('Unable to toggle theme')
+  }
+}
 </script>
 
 <template>
@@ -50,7 +60,7 @@ const { toggleTheme } = useTheme()
     <div class="ms-2 sm:ms-auto">
       <button
         v-press-animate
-        @click="toggleTheme"
+        @click="changeTheme"
         class="hover:text-accent relative size-9 cursor-pointer rounded-md p-2 transition-transform duration-200 hover:scale-105"
         type="button"
         role="switch"
