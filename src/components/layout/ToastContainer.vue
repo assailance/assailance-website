@@ -5,12 +5,12 @@ const { toasts } = useToast()
 </script>
 
 <template>
-  <div class="fixed bottom-4 left-1/2 z-50 w-80 -translate-x-1/2">
-    <TransitionGroup name="toast" tag="div" class="space-y-2.5">
+  <div class="fixed bottom-4 left-1/2 z-50 w-96 -translate-x-1/2">
+    <TransitionGroup name="toast" tag="div" class="flex flex-col items-center space-y-2.5">
       <div
         v-for="toast in toasts"
         :key="toast.id"
-        class="text-accent-2/75 bg-toast-bg pointer-events-auto relative flex w-[220px] items-center justify-between rounded-[1.375rem] px-5 py-6 backdrop-blur-xl"
+        class="text-accent-2/75 bg-toast-bg pointer-events-auto relative inline-flex items-center justify-between rounded-[1.375rem] px-5 py-6 backdrop-blur-xl"
       >
         {{ toast.message }}
       </div>
@@ -27,10 +27,6 @@ const { toasts } = useToast()
 .toast-enter-from,
 .toast-leave-to {
   opacity: 0;
-}
-
-.toast-leave-active {
-  position: absolute;
 }
 
 .toast-move {

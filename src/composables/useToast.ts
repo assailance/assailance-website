@@ -4,7 +4,7 @@ const TOAST_KEY = Symbol('toast')
 const TOAST_DURATION_DEFAULT = 3000
 
 interface Toast {
-  id: number
+  id: string
   message: string
 }
 
@@ -14,15 +14,16 @@ export function provideToast() {
   provide(TOAST_KEY, {
     toasts,
     add(message: string, duration?: number) {
+      const id = Date.now() + Math.random().toString(36).substring(2, 9)
       if (toasts.value.length >= 3) {
         toasts.value.shift()
       }
       toasts.value.push({
-        id: toasts.value.length + 1,
+        id,
         message
       })
       setTimeout(() => {
-        toasts.value.shift()
+        toasts.value = toasts.value.filter(toast => toast.id !== id)
       }, duration ?? TOAST_DURATION_DEFAULT)
     }
   })
