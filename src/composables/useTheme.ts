@@ -61,17 +61,13 @@ export function useTheme() {
     const currentTheme = getTheme()
     const newTheme: Theme = currentTheme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT
 
-    try {
-      animateThemeChange(newTheme, () => {
-        localStorage.theme = newTheme
-        applyTheme(newTheme)
-        setTimeout(() => {
-          isThemeChanging.value = false
-        }, 100)
-      })
-    } catch {
-      console.error('Unable to change theme')
-    }
+    animateThemeChange(newTheme, () => {
+      localStorage.theme = newTheme
+      applyTheme(newTheme)
+      setTimeout(() => {
+        isThemeChanging.value = false
+      }, 100)
+    })
   }
 
   const initTheme = () => {
