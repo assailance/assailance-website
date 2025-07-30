@@ -52,6 +52,10 @@ export function useTheme() {
 
   const applyTheme = (theme: Theme) => {
     container.setAttribute(THEME_ATTR, theme)
+    const containerStyle = getComputedStyle(container)
+    document.body.style.setProperty('--scrollbar-track-bg', containerStyle.getPropertyValue('--color-global-bg'))
+    document.body.style.setProperty('--scrollbar-thumb-bg', containerStyle.getPropertyValue('--color-global-text'))
+    document.body.style.setProperty('--scrollbar-thumb-hover', containerStyle.getPropertyValue('--color-accent-2'))
   }
 
   const toggleTheme = () => {

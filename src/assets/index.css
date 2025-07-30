@@ -9,6 +9,7 @@ body > #app,
   --color-global-text: oklch(26.99% 0.0096 235.05);
   --color-secondary-bg: oklch(94.66% 0 0);
   --color-toast-bg: oklch(0.8822 0 0 / 60%);
+  --color-border: oklch(0.8229 0.0018 247.84);
   --color-link: oklch(0.1149 0 0);
   --color-accent: oklch(0.1149 0 0);
   --color-accent-2: oklch(18.15% 0 0);
@@ -22,6 +23,7 @@ body > #app[data-theme='dark'],
   --color-global-text: oklch(83.54% 0 264);
   --color-secondary-bg: oklch(18.15% 0 0);
   --color-toast-bg: oklch(0.2727 0 0 / 70%);
+  --color-border: oklch(0.3329 0 0);
   --color-link: oklch(0.9851 0 0);
   --color-accent: oklch(0.9851 0 0);
   --color-accent-2: oklch(94.66% 0 0);
@@ -33,10 +35,55 @@ body > #app[data-theme='dark'],
   --color-global-text: var(--color-global-text);
   --color-secondary-bg: var(--color-secondary-bg);
   --color-toast-bg: var(--color-toast-bg);
+  --color-border: var(--color-border);
   --color-link: var(--color-link);
   --color-accent: var(--color-accent);
   --color-accent-2: var(--color-accent-2);
   --color-quote: var(--color-quote);
+
+  --animate-fade-in: fade-in 0.135s ease-in-out;
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  --animate-fade-out: fade-out 0.15s ease-in-out;
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  --animate-modal-in: modal-in 0.135s ease-in-out;
+  @keyframes modal-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0px);
+    }
+  }
+
+  --animate-modal-out: modal-out 0.15s ease-in-out;
+  @keyframes modal-out {
+    from {
+      opacity: 1;
+      transform: scale(1) translateY(0px);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+  }
 }
 
 .fade-enter-from,
@@ -46,7 +93,7 @@ body > #app[data-theme='dark'],
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 150ms ease-out;
+  transition: opacity 0.15s ease-out;
 }
 
 .theme-clip {
@@ -66,14 +113,14 @@ body > #app[data-theme='dark'],
 }
 
 @keyframes theme-expand-animation {
-  0% {
+  from {
     clip-path: circle(0rem at center);
     width: 0;
     height: 0;
     bottom: 0;
     left: 0;
   }
-  100% {
+  to {
     clip-path: circle(150vmax at center);
     width: 300vmax;
     height: 300vmax;
@@ -88,4 +135,27 @@ body > #app[data-theme='dark'],
 
 .pressed {
   transform: scale(0.95);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
 }
