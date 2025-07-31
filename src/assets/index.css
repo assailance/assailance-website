@@ -148,14 +148,17 @@ body > #app[data-theme='dark'],
 }
 
 ::-webkit-scrollbar-track {
+  /*noinspection CssUnresolvedCustomProperty*/
   background: var(--scrollbar-track-bg);
 }
 
 ::-webkit-scrollbar-thumb {
+  /*noinspection CssUnresolvedCustomProperty*/
   background: var(--scrollbar-thumb-bg);
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  /*noinspection CssUnresolvedCustomProperty*/
   background: var(--scrollbar-thumb-hover);
 }
