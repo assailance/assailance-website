@@ -55,8 +55,12 @@ onMounted(() => {
 <template>
   <section class="mt-16 mb-8">
     <!-- Header -->
-    <h2 class="mb-2.5 text-xl">Romanji Trainer <span class="text-sm text-gray-400">(fan)</span></h2>
-    <p class="mb-12 text-gray-600 dark:text-gray-400">Mini game for learning hiragana and katakana.</p>
+    <h2 class="mb-2.5 text-xl">
+      Romanji Trainer <span class="text-sm text-gray-400">(fan)</span>
+    </h2>
+    <p class="mb-12 text-gray-600 dark:text-gray-400">
+      Mini game for learning hiragana and katakana.
+    </p>
     <!-- /Header -->
     <!-- Mini Game -->
     <div class="mx-auto max-w-2/3 text-center">
@@ -64,6 +68,7 @@ onMounted(() => {
       <div class="mb-16 flex items-center justify-between px-2.5">
         <!-- Star -->
         <svg
+          ref="starIconRef"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -72,7 +77,6 @@ onMounted(() => {
           aria-hidden="true"
           stroke="currentColor"
           stroke-width="2"
-          ref="starIconRef"
           class="data-[correct=true]:fill-global-text size-6 transition-all duration-300 data-[correct=true]:scale-125 data-[correct=true]:rotate-30"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -104,13 +108,13 @@ onMounted(() => {
       <Transition name="fade-slide" mode="out-in" :duration="200">
         <div :key="current as string" class="mt-8 grid grid-cols-2 gap-5">
           <button
-            v-press-animate
             v-for="option in options"
             :key="option"
-            :disabled="isSelected"
             ref="optionRefs"
-            @click="choose(option)"
+            v-press-animate
+            :disabled="isSelected"
             class="data-[correct=true]:border-global-text data-[correct=true]:bg-global-text data-[correct=true]:text-global-bg border-border not-disabled:hover:border-global-text data-[correct=false]:bg-border/50 flex h-24 items-center justify-center rounded-3xl border text-2xl transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-75 data-[correct]:disabled:opacity-100 data-[correct=false]:border-none"
+            @click="choose(option)"
           >
             {{ option }}
           </button>

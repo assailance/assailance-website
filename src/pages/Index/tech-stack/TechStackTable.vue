@@ -23,7 +23,9 @@ import VueIcon from '@/components/icons/VueIcon.vue'
     <tbody class="border-accent border">
       <!-- Languages -->
       <tr class="border-accent border-b">
-        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">Languages</td>
+        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">
+          Languages
+        </td>
         <td class="p-6">
           <ul class="flex flex-wrap gap-x-5 gap-y-5">
             <li class="flex flex-col items-center gap-y-2.5">
@@ -48,7 +50,9 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       <!-- /Languages -->
       <!-- Frontend -->
       <tr class="border-accent border-b">
-        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">Frontend</td>
+        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">
+          Frontend
+        </td>
         <td class="p-6">
           <ul class="flex flex-wrap gap-x-5">
             <li class="flex flex-col items-center gap-y-2.5">
@@ -81,7 +85,9 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       <!-- /Frontend -->
       <!-- Backend -->
       <tr class="border-accent border-b">
-        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">Backend</td>
+        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">
+          Backend
+        </td>
         <td class="p-6">
           <ul class="flex flex-wrap gap-x-5">
             <li class="flex flex-col items-center gap-y-2.5">
@@ -102,7 +108,9 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       <!-- /Backend -->
       <!-- Tools and DevOps -->
       <tr>
-        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">Tools / DevOps</td>
+        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">
+          Tools / DevOps
+        </td>
         <td class="p-6">
           <ul class="flex flex-wrap gap-x-5">
             <li class="flex flex-col items-center gap-y-2.5">

@@ -18,8 +18,12 @@ const emailUrl = import.meta.env.VITE_EMAIL_URL
         <span class="text-sm text-gray-400">(ru) </span>Илья <br />
       </div>
     </div>
-    <p class="mb-6 text-lg">(he/him)</p>
-    <p class="mb-8 text-lg">web dev (backend / frontend), creating bots and automating scripts.</p>
+    <p class="mb-6 text-lg">
+      (he/him)
+    </p>
+    <p class="mb-8 text-lg">
+      web dev (backend / frontend), creating bots and automating scripts.
+    </p>
     <!-- /Info -->
     <!-- Socials -->
     <div class="flex flex-wrap items-end gap-x-2">

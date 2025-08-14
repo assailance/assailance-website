@@ -18,10 +18,7 @@ export function provideToast() {
       if (toasts.value.length >= 3) {
         toasts.value.shift()
       }
-      toasts.value.push({
-        id,
-        message
-      })
+      toasts.value.push({ id, message })
       setTimeout(() => {
         toasts.value = toasts.value.filter(toast => toast.id !== id)
       }, duration ?? TOAST_DURATION_DEFAULT)

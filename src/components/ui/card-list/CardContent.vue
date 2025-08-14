@@ -32,7 +32,9 @@ defineProps<ICardProps>()
     </ul>
     <!-- /Tags -->
     <!-- Description -->
-    <p :class="[tags ? 'mt-2.5' : 'mt-2', 'text-accent-2/75']">{{ description }}</p>
+    <p :class="[tags ? 'mt-2.5' : 'mt-2', 'text-accent-2/75']">
+      {{ description }}
+    </p>
     <!-- /Description -->
   </div>
 </template>

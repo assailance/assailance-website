@@ -34,7 +34,9 @@ onMounted(() => {
 <template>
   <section id="stack" class="mt-16">
     <div class="mb-4 flex items-center justify-between">
-      <h2 class="text-xl">Tech stack</h2>
+      <h2 class="text-xl">
+        Tech stack
+      </h2>
       <!-- Tabs -->
       <div class="bg-secondary-bg relative flex w-max items-center rounded-lg p-1" role="tablist" aria-label="View switcher">
         <!-- Highlight -->
@@ -48,6 +50,7 @@ onMounted(() => {
         <button
           v-for="(tab, index) in tabs"
           :key="tab"
+          ref="tabRefs"
           class="relative z-10 rounded-lg px-3 py-1.5 text-xs transition-colors duration-150"
           :class="{
             'text-accent/75': selected === index,
@@ -57,7 +60,6 @@ onMounted(() => {
           :aria-selected="selected === index"
           :aria-controls="'tabpanel-' + index"
           type="button"
-          ref="tabRefs"
           @click="selectTab(index)"
         >
           {{ tab }}
