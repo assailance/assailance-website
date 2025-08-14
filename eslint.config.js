@@ -1,20 +1,17 @@
-import eslintJs from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
+import js from '@eslint/js'
+import vue from 'eslint-plugin-vue'
 import { defineConfig } from 'eslint/config'
 import globals from 'globals'
-import eslintTs from 'typescript-eslint'
+import ts from 'typescript-eslint'
 
 export default defineConfig([
   { ignores: ['dist', 'coverage'] },
 
-  // =======================
-  // ===== Basic Rules =====
-  // =======================
-  {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,vue}'],
-    plugins: { eslintJs },
-    extends: ['eslintJs/recommended']
-  },
+  // =============================
+  // ===== Js/Ts Recommended =====
+  // =============================
+  js.configs.recommended,
+  ts.configs.recommended,
 
   // ===========================
   // ===== Browser Globals =====
@@ -24,30 +21,19 @@ export default defineConfig([
     languageOptions: { globals: globals.browser }
   },
 
-  // ==================================
-  // ===== TypeScript Recommended =====
-  // ==================================
-  eslintTs.configs.recommended,
-
   // =============================
   // ===== ESLint Plugin Vue =====
   // =============================
-  ...pluginVue.configs['flat/essential'].map(config => ({
-    ...config,
-    files: ['**/*.vue'],
-    rules: {
-      ...config.rules,
-      'vue/multi-word-component-names': 'off'
-    }
-  })),
-
-  // =====================================
-  // ===== TypeScript Parser for Vue =====
-  // =====================================
+  ...vue.configs['flat/recommended'],
   {
-    files: ['**/*.vue'],
+    files: ['**/*.{vue,ts}'],
     languageOptions: {
-      parserOptions: { parser: eslintTs.parser }
+      parserOptions: { parser: ts.parser }
+    },
+    rules: {
+      'vue/multi-word-component-names': 'off',
+      'vue/max-attributes-per-line': 'off',
+      'vue/html-self-closing': 'off'
     }
   }
 ])
