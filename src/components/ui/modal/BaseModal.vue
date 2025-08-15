@@ -105,7 +105,7 @@ defineExpose({
     ></div>
     <!-- /Overlay -->
     <!-- Modal -->
-    <div v-if="isVisible" ref="modal" data-modal-container class="pointer-events-none fixed top-0 left-0 z-[9998] h-full w-full" @click.self="close">
+    <div v-if="isVisible" ref="modal" data-modal-container class="pointer-events-auto fixed top-0 left-0 z-[9998] h-full w-full" @click.self="close">
       <slot />
     </div>
     <!-- /Modal -->
