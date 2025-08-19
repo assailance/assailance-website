@@ -4,7 +4,6 @@ import { onMounted, onUnmounted } from 'vue'
 import Footer from '@/components/layout/Footer.vue'
 import Header from '@/components/layout/Header.vue'
 import ToastContainer from '@/components/layout/ToastContainer.vue'
-import { modalStack } from '@/composables/useModalManager.ts'
 import { useTheme } from '@/composables/useTheme.ts'
 import { provideToast } from '@/composables/useToast.ts'
 
@@ -17,21 +16,13 @@ const handleSystemTheme = (e: MediaQueryListEvent) => {
   }
 }
 
-const handleKeyDown = (e: KeyboardEvent) => {
-  if (modalStack.value.length === 0) return
-  const currentModal = modalStack.value[modalStack.value.length - 1]
-  currentModal.handleKeyDown(e)
-}
-
 onMounted(() => {
   initTheme()
   prefersDark.addEventListener('change', handleSystemTheme)
-  window.addEventListener('keydown', handleKeyDown)
 })
 
 onUnmounted(() => {
   prefersDark.removeEventListener('change', handleSystemTheme)
-  window.removeEventListener('keydown', handleKeyDown)
 })
 
 provideToast()

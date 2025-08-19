@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { useModalManager } from '@/composables/useModalManager.ts'
-import { nextTick, onUnmounted, ref, useTemplateRef, watch } from 'vue'
+import { nextTick, ref, useTemplateRef, watch } from 'vue'
 
 const model = defineModel<boolean>({ required: true })
-
-const { registerModal, unregisterModal } = useModalManager()
 
 const app = document.getElementById('app') as HTMLElement
 
@@ -51,27 +48,21 @@ const updateFocusableElements = () => {
 }
 
 const showModal = () => {
-  if (!document.querySelector('[data-modal-container]')) {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-    document.body.style.overflow = 'hidden'
-    app.style.paddingRight = `${scrollbarWidth}px`
-  }
-  registerModal(handleKeyDown)
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+  document.body.style.overflow = 'hidden'
+  app.style.paddingRight = `${scrollbarWidth}px`
   isVisible.value = true
   modalState.value = 'open'
   nextTick(() => updateFocusableElements())
 }
 
 const hideModal = () => {
-  unregisterModal()
   modalState.value = 'closed'
   setTimeout(() => {
     isVisible.value = false
     nextTick(() => {
-      if (!document.querySelector('[data-modal-container]')) {
-        app.style.removeProperty('padding-right')
-        document.body.style.removeProperty('overflow')
-      }
+      app.style.removeProperty('padding-right')
+      document.body.style.removeProperty('overflow')
     })
   }, 135)
 }
@@ -82,10 +73,6 @@ watch(model, value => {
   } else {
     hideModal()
   }
-})
-
-onUnmounted(() => {
-  unregisterModal()
 })
 
 defineExpose({
@@ -105,7 +92,7 @@ defineExpose({
     ></div>
     <!-- /Overlay -->
     <!-- Modal -->
-    <div v-if="isVisible" ref="modal" data-modal-container class="pointer-events-auto fixed top-0 left-0 z-[9998] h-full w-full" @click.self="close">
+    <div v-if="isVisible" ref="modal" class="pointer-events-auto fixed top-0 left-0 z-[9998] h-full w-full" @keydown="handleKeyDown" @click.self="close">
       <slot />
     </div>
     <!-- /Modal -->
