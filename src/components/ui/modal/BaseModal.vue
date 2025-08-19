@@ -11,6 +11,7 @@ const modalRef = useTemplateRef<HTMLDivElement>('modal')
 const focusableElements = ref<HTMLElement[]>([])
 const firstFocusableElement = ref<HTMLElement | null>(null)
 const lastFocusableElement = ref<HTMLElement | null>(null)
+const previouslyFocusedElement = ref<HTMLElement | null>(null)
 
 const close = () => {
   model.value = false
@@ -21,6 +22,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
     close()
     return
   }
+
   if (e.key !== 'Tab' || !focusableElements.value.length) return
 
   if (e.shiftKey) {
@@ -30,6 +32,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
     }
     return
   }
+
   if (document.activeElement === lastFocusableElement.value) {
     e.preventDefault()
     firstFocusableElement.value?.focus()
@@ -48,6 +51,7 @@ const updateFocusableElements = () => {
 }
 
 const showModal = () => {
+  previouslyFocusedElement.value = document.activeElement as HTMLElement
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
   document.body.style.overflow = 'hidden'
   app.style.paddingRight = `${scrollbarWidth}px`
@@ -62,6 +66,7 @@ const hideModal = () => {
     isVisible.value = false
     app.style.removeProperty('padding-right')
     document.body.style.removeProperty('overflow')
+    previouslyFocusedElement.value?.focus()
   }, 135)
 }
 
