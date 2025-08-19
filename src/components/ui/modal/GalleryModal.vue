@@ -47,7 +47,7 @@ const prevImage = () => {
         :src="currentImage"
         :alt="currentAlt"
         tabindex="0"
-        class="absolute top-1/2 left-1/2 z-50 max-h-[80vh] max-w-full -translate-1/2"
+        class="absolute top-1/2 left-1/2 max-h-[80vh] max-w-full -translate-1/2"
         draggable="false"
         :aria-description="currentAlt"
       />
