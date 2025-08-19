@@ -74,8 +74,6 @@ watch(model, value => {
 })
 
 defineExpose({
-  isVisible,
-  modalState,
   close
 })
 </script>
@@ -86,11 +84,21 @@ defineExpose({
     <div
       v-if="isVisible"
       :data-state="modalState"
-      class="data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out pointer-events-none fixed inset-0 z-[9997] bg-black/75"
+      class="data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out pointer-events-none fixed inset-0 z-[9998] bg-black/75"
     ></div>
     <!-- /Overlay -->
     <!-- Modal -->
-    <div v-if="isVisible" ref="modal" class="pointer-events-auto fixed top-0 left-0 z-[9998] h-full w-full" @keydown="handleKeyDown" @click.self="close">
+    <div
+      v-if="isVisible"
+      ref="modal"
+      role="dialog"
+      aria-modal="true"
+      tabindex="-1"
+      :data-state="modalState"
+      class="data-[state=open]:animate-modal-in data-[state=closed]:animate-modal-out pointer-events-auto fixed top-0 left-0 z-[9999] h-full w-full"
+      @keydown="handleKeyDown"
+      @click.self="close"
+    >
       <slot />
     </div>
     <!-- /Modal -->

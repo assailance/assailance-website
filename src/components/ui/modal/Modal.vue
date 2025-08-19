@@ -11,14 +11,7 @@ const baseModalRef = useTemplateRef<InstanceType<typeof BaseModal>>('baseModal')
 <template>
   <BaseModal ref="baseModal" v-model="model">
     <!-- Modal -->
-    <div
-      v-if="baseModalRef?.isVisible"
-      :data-state="baseModalRef.modalState"
-      class="data-[state=open]:animate-modal-in border-border data-[state=closed]:animate-modal-out bg-global-bg fixed top-1/2 left-1/2 z-[9999] w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-xl border p-6 shadow-md"
-      role="dialog"
-      aria-modal="true"
-      tabindex="-1"
-    >
+    <div class="border-border bg-global-bg absolute top-1/2 left-1/2 w-full max-w-lg -translate-1/2 rounded-xl border p-6 shadow-md">
       <!-- Content -->
       <slot />
       <!-- /Content -->
@@ -28,7 +21,7 @@ const baseModalRef = useTemplateRef<InstanceType<typeof BaseModal>>('baseModal')
         title="Close"
         class="text-global-text/85 hover:text-accent absolute top-4 right-4 transition-colors duration-200"
         aria-label="Close modal"
-        @click="baseModalRef.close()"
+        @click="baseModalRef?.close()"
       >
         <XIcon />
       </button>
