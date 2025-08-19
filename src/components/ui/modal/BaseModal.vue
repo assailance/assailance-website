@@ -42,7 +42,9 @@ const handleKeyDown = (e: KeyboardEvent) => {
 const updateFocusableElements = () => {
   if (!isVisible.value || !modalRef.value) return
   const focusableElementsSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-  focusableElements.value = Array.from(modalRef.value.querySelectorAll(focusableElementsSelector)) as HTMLElement[]
+  focusableElements.value = Array.from(modalRef.value.querySelectorAll(focusableElementsSelector)).filter(
+    el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
+  ) as HTMLElement[]
   if (focusableElements.value.length) {
     firstFocusableElement.value = focusableElements.value[0]
     lastFocusableElement.value = focusableElements.value[focusableElements.value.length - 1]
