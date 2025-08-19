@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import MoonIcon from '@/components/icons/MoonIcon.vue'
 import SunIcon from '@/components/icons/SunIcon.vue'
-import { useTheme } from '@/composables/useTheme.ts'
-import { useToast } from '@/composables/useToast.ts'
+import { useTheme } from '@/composables/theme.composable.ts'
+import { useToast } from '@/composables/toast.composable.ts'
 
 const { add } = useToast()
 const { toggleTheme } = useTheme()
