@@ -60,10 +60,8 @@ const hideModal = () => {
   modalState.value = 'closed'
   setTimeout(() => {
     isVisible.value = false
-    nextTick(() => {
-      app.style.removeProperty('padding-right')
-      document.body.style.removeProperty('overflow')
-    })
+    app.style.removeProperty('padding-right')
+    document.body.style.removeProperty('overflow')
   }, 135)
 }
 
