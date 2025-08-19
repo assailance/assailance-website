@@ -101,6 +101,7 @@ defineExpose({
       role="dialog"
       aria-modal="true"
       tabindex="-1"
+      :aria-hidden="!isVisible"
       :data-state="modalState"
       class="data-[state=open]:animate-modal-in data-[state=closed]:animate-modal-out pointer-events-auto fixed top-0 left-0 z-[9999] h-full w-full"
       @keydown="handleKeyDown"
