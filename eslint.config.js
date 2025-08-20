@@ -1,4 +1,5 @@
 import js from '@eslint/js'
+import prettier from 'eslint-plugin-prettier/recommended'
 import vue from 'eslint-plugin-vue'
 import { defineConfig } from 'eslint/config'
 import globals from 'globals'
@@ -31,9 +32,12 @@ export default defineConfig([
       parserOptions: { parser: ts.parser }
     },
     rules: {
-      'vue/multi-word-component-names': 'off',
-      'vue/max-attributes-per-line': 'off',
-      'vue/html-self-closing': 'off'
+      'vue/multi-word-component-names': 'off'
     }
-  }
+  },
+
+  // ====================
+  // ===== Prettier =====
+  // ====================
+  prettier
 ])
