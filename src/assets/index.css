@@ -19,9 +19,9 @@ body > #app,
 body > #app[data-theme='dark'],
 #theme-transition-clip[data-theme='dark'] {
   color-scheme: dark;
-  --color-global-bg: oklch(0.1149 0 0);
+  --color-global-bg: oklch(0.164 0 89.876);
   --color-global-text: oklch(83.54% 0 264);
-  --color-secondary-bg: oklch(18.15% 0 0);
+  --color-secondary-bg: oklch(0.196 0 89.876);
   --color-toast-bg: oklch(0.2727 0 0 / 70%);
   --color-border: oklch(0.3329 0 0);
   --color-link: oklch(0.9851 0 0);
