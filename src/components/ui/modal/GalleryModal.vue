@@ -2,7 +2,7 @@
 import ChevronLeftIcon from '@/components/icons/ChevronLeftIcon.vue'
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon.vue'
 import XIcon from '@/components/icons/XIcon.vue'
-import { computed, ref, useTemplateRef } from 'vue'
+import { computed, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 import BaseModal from './BaseModal.vue'
 
 const model = defineModel<boolean>({ required: true })
@@ -12,6 +12,8 @@ const props = defineProps<{
 }>()
 
 const baseModalRef = useTemplateRef<InstanceType<typeof BaseModal>>('baseModal')
+const prevButtonRef = useTemplateRef<HTMLButtonElement>('prevButton')
+const nextButtonRef = useTemplateRef<HTMLButtonElement>('nextButton')
 const currentIndex = ref<number>(0)
 const currentEffect = ref<'slide-left' | 'slide-right' | null>(null)
 
@@ -36,6 +38,40 @@ const prevImage = () => {
     currentIndex.value = props.images.length - 1
   }
 }
+
+const handleKeyDown = (e: KeyboardEvent) => {
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault()
+    e.stopPropagation()
+    prevImage()
+    if (document.activeElement !== prevButtonRef.value) {
+      prevButtonRef.value?.focus()
+    }
+  } else if (e.key === 'ArrowRight') {
+    e.preventDefault()
+    e.stopPropagation()
+    nextImage()
+    if (document.activeElement !== nextButtonRef.value) {
+      nextButtonRef.value?.focus()
+    }
+  }
+}
+
+watch(model, value => {
+  if (!hasSomeImages.value) return
+
+  if (value) {
+    document.addEventListener('keydown', handleKeyDown, true)
+  } else {
+    document.removeEventListener('keydown', handleKeyDown, true)
+  }
+})
+
+onUnmounted(() => {
+  if (hasSomeImages.value) {
+    document.removeEventListener('keydown', handleKeyDown, true)
+  }
+})
 </script>
 
 <template>
@@ -46,7 +82,6 @@ const prevImage = () => {
         :key="currentIndex"
         :src="currentImage"
         :alt="currentAlt"
-        tabindex="0"
         class="absolute top-1/2 left-1/2 max-h-[80vh] max-w-full -translate-1/2"
         draggable="false"
         :aria-description="currentAlt"
@@ -56,7 +91,8 @@ const prevImage = () => {
     <!-- Buttons -->
     <button
       v-if="hasSomeImages"
-      class="bg-global-text/15 dark:bg-global-text/[.03] hover:bg-global-text/20 dark:hover:bg-global-text/[.04] absolute top-1/2 left-4 flex h-36 w-16 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
+      ref="prevButton"
+      class="bg-black/10 hover:bg-black/20 absolute top-1/2 left-4 flex h-36 w-16 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
       aria-label="Previous image"
       @click="prevImage"
     >
@@ -64,7 +100,8 @@ const prevImage = () => {
     </button>
     <button
       v-if="hasSomeImages"
-      class="bg-global-text/15 dark:bg-global-text/[.03] hover:bg-global-text/20 dark:hover:bg-global-text/[.04] absolute top-1/2 right-4 flex h-36 w-16 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
+      ref="nextButton"
+      class="bg-black/10 hover:bg-black/20 absolute top-1/2 right-4 flex h-36 w-16 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
       aria-label="Next image"
       @click="nextImage"
     >
@@ -73,7 +110,7 @@ const prevImage = () => {
     <!-- /Buttons -->
     <!-- Close -->
     <button
-      class="bg-global-text/15 dark:bg-global-text/[.03] hover:bg-global-text/20 dark:hover:bg-global-text/[.04] absolute top-4 left-4 flex size-16 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300"
+      class="bg-black/10 hover:bg-black/20 absolute top-4 left-4 flex size-16 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300"
       aria-label="Close gallery"
       @click="baseModalRef?.close()"
     >
@@ -84,7 +121,7 @@ const prevImage = () => {
     <div
       aria-live="polite"
       aria-atomic="true"
-      class="bg-global-text/25 dark:bg-global-text/10 absolute top-5 left-1/2 z-50 -translate-x-1/2 rounded-lg px-3.5 py-2.5 text-gray-300"
+      class="bg-black/10 absolute top-5 left-1/2 z-50 -translate-x-1/2 rounded-lg px-3.5 py-2.5 text-gray-300"
     >
       {{ currentIndex + 1 }} of {{ images.length }}
     </div>
