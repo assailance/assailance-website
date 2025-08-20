@@ -20,10 +20,10 @@ import VueIcon from '@/components/icons/VueIcon.vue'
 
 <template>
   <table class="w-full table-auto">
-    <tbody class="border-accent border">
+    <tbody class="border-border border">
       <!-- Languages -->
-      <tr class="border-accent border-b">
-        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">
+      <tr class="border-border border-b">
+        <td class="border-border border-r p-6 text-center text-base whitespace-nowrap">
           Languages
         </td>
         <td class="p-6">
@@ -49,8 +49,8 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       </tr>
       <!-- /Languages -->
       <!-- Frontend -->
-      <tr class="border-accent border-b">
-        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">
+      <tr class="border-border border-b">
+        <td class="border-border border-r p-6 text-center text-base whitespace-nowrap">
           Frontend
         </td>
         <td class="p-6">
@@ -84,8 +84,8 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       </tr>
       <!-- /Frontend -->
       <!-- Backend -->
-      <tr class="border-accent border-b">
-        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">
+      <tr class="border-border border-b">
+        <td class="border-border border-r p-6 text-center text-base whitespace-nowrap">
           Backend
         </td>
         <td class="p-6">
@@ -108,7 +108,7 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       <!-- /Backend -->
       <!-- Tools and DevOps -->
       <tr>
-        <td class="border-accent border-r p-6 text-center text-base whitespace-nowrap">
+        <td class="border-border border-r p-6 text-center text-base whitespace-nowrap">
           Tools / DevOps
         </td>
         <td class="p-6">
