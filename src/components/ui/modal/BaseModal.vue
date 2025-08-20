@@ -58,8 +58,18 @@ const updateFocusableElements = () => {
   }
 }
 
+const setInertForOutsideElements = (inert: boolean) => {
+  document.body.querySelectorAll('#app > *').forEach(element => {
+    if (element !== modalRef.value) {
+      ;(element as HTMLElement).inert = inert
+    }
+  })
+}
+
 const showModal = () => {
   previouslyFocusedElement.value = document.activeElement as HTMLElement
+
+  setInertForOutsideElements(true)
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
   document.body.style.overflow = 'hidden'
   document.body.style.pointerEvents = 'none'
@@ -77,9 +87,11 @@ const hideModal = () => {
   setTimeout(() => {
     isVisible.value = false
 
+    setInertForOutsideElements(false)
     app.style.removeProperty('padding-right')
     document.body.style.removeProperty('overflow')
     document.body.style.removeProperty('pointer-events')
+
     previouslyFocusedElement.value?.focus()
   }, 135)
 }
