@@ -116,7 +116,7 @@ defineExpose({
       v-if="isVisible"
       :data-state="modalState"
       aria-hidden="true"
-      class="data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out pointer-events-none fixed inset-0 z-[9998] bg-black/75"
+      class="data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out pointer-events-none fixed inset-0 z-[9998] bg-overlay"
     ></div>
     <!-- /Overlay -->
     <!-- Modal -->

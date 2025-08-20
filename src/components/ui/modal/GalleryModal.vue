@@ -88,41 +88,43 @@ onUnmounted(() => {
       />
     </Transition>
     <!-- /Image -->
-    <!-- Buttons -->
+
+    <!-- Prev Button -->
     <button
       v-if="hasSomeImages"
       ref="prevButton"
-      class="bg-black/10 hover:bg-black/20 absolute top-1/2 left-4 flex h-36 w-16 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
+      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-1/2 left-4 flex h-28 w-14 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
       aria-label="Previous image"
       @click="prevImage"
     >
       <ChevronLeftIcon class="mr-0.5" />
     </button>
+    <!-- /Prev Button -->
+
+    <!-- Next Button -->
     <button
       v-if="hasSomeImages"
       ref="nextButton"
-      class="bg-black/10 hover:bg-black/20 absolute top-1/2 right-4 flex h-36 w-16 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
+      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-1/2 right-4 flex h-28 w-14 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
       aria-label="Next image"
       @click="nextImage"
     >
       <ChevronRightIcon class="ml-0.5" />
     </button>
-    <!-- /Buttons -->
+    <!-- /Next Button -->
+
     <!-- Close -->
     <button
-      class="bg-black/10 hover:bg-black/20 absolute top-4 left-4 flex size-16 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300"
+      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-4 left-4 flex size-14 items-center justify-center rounded-lg text-gray-300/75 transition-colors duration-200 hover:text-gray-300"
       aria-label="Close gallery"
       @click="baseModalRef?.close()"
     >
       <XIcon class="size-6" />
     </button>
     <!-- /Close -->
+
     <!-- Number of Image -->
-    <div
-      aria-live="polite"
-      aria-atomic="true"
-      class="bg-black/10 absolute top-5 left-1/2 z-50 -translate-x-1/2 rounded-lg px-3.5 py-2.5 text-gray-300"
-    >
+    <div aria-live="polite" aria-atomic="true" class="bg-overlay-element absolute top-5 left-1/2 z-50 -translate-x-1/2 rounded-lg px-3.5 py-2.5 text-gray-300">
       {{ currentIndex + 1 }} of {{ images.length }}
     </div>
     <!-- /Number of Image -->
