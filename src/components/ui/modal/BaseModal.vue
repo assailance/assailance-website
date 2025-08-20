@@ -56,6 +56,7 @@ const showModal = () => {
   previouslyFocusedElement.value = document.activeElement as HTMLElement
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
   document.body.style.overflow = 'hidden'
+  document.body.style.pointerEvents = 'none'
   app.style.paddingRight = `${scrollbarWidth}px`
   isVisible.value = true
   modalState.value = 'open'
@@ -68,6 +69,7 @@ const hideModal = () => {
     isVisible.value = false
     app.style.removeProperty('padding-right')
     document.body.style.removeProperty('overflow')
+    document.body.style.removeProperty('pointer-events')
     previouslyFocusedElement.value?.focus()
   }, 135)
 }
