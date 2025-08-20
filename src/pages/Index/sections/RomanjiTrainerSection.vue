@@ -57,12 +57,8 @@ onMounted(() => {
 <template>
   <section class="mt-20 mb-10">
     <!-- Header -->
-    <h2 class="mb-2.5 text-xl">
-      Romanji Trainer <span class="text-sm text-gray-400">(fan)</span>
-    </h2>
-    <p class="mb-12 text-gray-600 dark:text-gray-400">
-      Mini game for learning hiragana and katakana.
-    </p>
+    <h2 class="mb-2.5 text-xl">Romanji Trainer <span class="text-sm text-gray-400">(fan)</span></h2>
+    <p class="mb-12 text-gray-600 dark:text-gray-400">Mini game for learning hiragana and katakana.</p>
     <!-- /Header -->
     <!-- Mini Game -->
     <div class="mx-auto max-w-2/3 text-center">

@@ -4,9 +4,7 @@ import { Card, CardList } from '@/components/ui/card-list'
 
 <template>
   <section class="mt-20">
-    <h2 class="mb-4 text-xl">
-      Repositories
-    </h2>
+    <h2 class="mb-4 text-xl">Repositories</h2>
     <!-- Repositories -->
     <CardList>
       <Card title="Github README" title-link="https://github.com/assailance/assailance" description="Main github page with more info about me." />

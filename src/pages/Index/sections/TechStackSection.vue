@@ -34,9 +34,7 @@ onMounted(() => {
 <template>
   <section id="stack" class="mt-20">
     <div class="mb-4 flex items-center justify-between">
-      <h2 class="text-xl">
-        Tech stack
-      </h2>
+      <h2 class="text-xl">Tech stack</h2>
       <!-- Tabs -->
       <div class="bg-secondary-bg relative flex w-max items-center rounded-lg p-1" role="tablist" aria-label="View switcher">
         <!-- Highlight -->

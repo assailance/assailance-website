@@ -22,9 +22,7 @@ import VueIcon from '@/components/icons/VueIcon.vue'
   <ul class="flex flex-col gap-y-5">
     <!-- Languages -->
     <li>
-      <p class="mb-2.5 text-lg">
-        Languages:
-      </p>
+      <p class="mb-2.5 text-lg">Languages:</p>
       <ul class="flex w-auto flex-wrap gap-x-7">
         <li class="flex flex-col items-center gap-y-2.5">
           <PythonIcon />
@@ -48,9 +46,7 @@ import VueIcon from '@/components/icons/VueIcon.vue'
     <li class="bg-global-text mb-4 h-[0.5px] w-40" />
     <!-- Frontend -->
     <li>
-      <p class="mb-2.5 text-lg">
-        Frontend:
-      </p>
+      <p class="mb-2.5 text-lg">Frontend:</p>
       <ul class="flex flex-wrap gap-x-7">
         <li class="flex flex-col items-center gap-y-2.5">
           <HtmlIcon />
@@ -82,9 +78,7 @@ import VueIcon from '@/components/icons/VueIcon.vue'
     <li class="bg-global-text mb-4 h-[0.5px] w-40" />
     <!-- Backend -->
     <li>
-      <p class="mb-2.5 text-lg">
-        Backend:
-      </p>
+      <p class="mb-2.5 text-lg">Backend:</p>
       <ul class="flex flex-wrap gap-x-7">
         <li class="flex flex-col items-center gap-y-2.5">
           <DjangoIcon />
@@ -104,9 +98,7 @@ import VueIcon from '@/components/icons/VueIcon.vue'
     <li class="bg-global-text mb-4 h-[0.5px] w-40" />
     <!-- Tools and DevOps -->
     <li>
-      <p class="mb-2.5 text-lg">
-        Tools and DevOps:
-      </p>
+      <p class="mb-2.5 text-lg">Tools and DevOps:</p>
       <ul class="flex flex-wrap gap-x-7">
         <li class="flex flex-col items-center gap-y-2.5">
           <GitIcon />
