@@ -98,6 +98,7 @@ defineExpose({
     <div
       v-if="isVisible"
       :data-state="modalState"
+      aria-hidden="true"
       class="data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out pointer-events-none fixed inset-0 z-[9998] bg-black/75"
     ></div>
     <!-- /Overlay -->
@@ -110,7 +111,7 @@ defineExpose({
       tabindex="-1"
       :aria-hidden="!isVisible"
       :data-state="modalState"
-      class="data-[state=open]:animate-modal-in data-[state=closed]:animate-modal-out pointer-events-auto fixed top-0 left-0 z-[9999] h-full w-full"
+      class="data-[state=open]:animate-modal-in data-[state=closed]:animate-modal-out pointer-events-auto fixed inset-0 top-0 left-0 z-[9999] h-full w-full"
       @keydown="handleKeyDown"
       @click.self="close"
     >
