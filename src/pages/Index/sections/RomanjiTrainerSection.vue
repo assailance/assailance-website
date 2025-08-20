@@ -55,7 +55,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="mt-16 mb-8">
+  <section class="mt-20 mb-10">
     <!-- Header -->
     <h2 class="mb-2.5 text-xl">
       Romanji Trainer <span class="text-sm text-gray-400">(fan)</span>

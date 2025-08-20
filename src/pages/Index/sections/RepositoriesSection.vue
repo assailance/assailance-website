@@ -3,7 +3,7 @@ import { Card, CardList } from '@/components/ui/card-list'
 </script>
 
 <template>
-  <section class="mt-16">
+  <section class="mt-20">
     <h2 class="mb-4 text-xl">
       Repositories
     </h2>
