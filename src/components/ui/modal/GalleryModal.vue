@@ -115,7 +115,7 @@ onUnmounted(() => {
 
     <!-- Close -->
     <button
-      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-4 left-4 flex size-14 items-center justify-center rounded-lg text-gray-300/75 transition-colors duration-200 hover:text-gray-300"
+      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-4 right-4 flex size-14 items-center justify-center rounded-lg text-gray-300/75 transition-colors duration-200 hover:text-gray-300"
       aria-label="Close gallery"
       @click="baseModalRef?.close()"
     >
@@ -124,7 +124,7 @@ onUnmounted(() => {
     <!-- /Close -->
 
     <!-- Number of Image -->
-    <div aria-live="polite" aria-atomic="true" class="bg-overlay-element absolute top-5 left-1/2 z-50 -translate-x-1/2 rounded-lg px-3.5 py-2.5 text-gray-300">
+    <div aria-live="polite" aria-atomic="true" class="absolute top-5 left-4 z-50 rounded-lg px-3.5 py-2.5 text-gray-300">
       {{ currentIndex + 1 }} of {{ images.length }}
     </div>
     <!-- /Number of Image -->
