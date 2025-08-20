@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import ImagesIcon from '@/components/icons/ImagesIcon.vue'
+import GalleryModal from '@/components/ui/modal/GalleryModal.vue'
+import { shallowRef } from 'vue'
 import CardContent from './CardContent.vue'
 import type { ICardWithImageProps } from './types.ts'
 
 defineProps<ICardWithImageProps>()
+
+const galleryOpen = shallowRef<boolean>(false)
 </script>
 
 <template>
@@ -16,6 +20,7 @@ defineProps<ICardWithImageProps>()
       <button
         v-press-animate
         class="bg-global-bg hover:text-accent-2 absolute top-2.5 left-2.5 flex size-8 cursor-default items-center overflow-hidden rounded-lg opacity-85 transition-all duration-200 hover:w-[86px]"
+        @click="galleryOpen = true"
       >
         <span class="flex min-w-8 items-center justify-center">
           <ImagesIcon />
@@ -28,5 +33,8 @@ defineProps<ICardWithImageProps>()
     <!-- Card Content -->
     <CardContent v-bind="{ title, titleLink, description, externalLink, tags }" />
     <!-- /Card Content -->
+    <!-- Gallery -->
+    <GalleryModal v-model="galleryOpen" :images="images" />
+    <!-- /Gallery -->
   </article>
 </template>
