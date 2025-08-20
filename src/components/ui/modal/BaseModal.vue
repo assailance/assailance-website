@@ -31,25 +31,26 @@ const handleKeyDown = (e: KeyboardEvent) => {
     return
   }
 
-  if (e.key !== 'Tab' || !focusableElements.value.length) return
+  const isTabKey = e.key === 'Tab' && !e.altKey && !e.ctrlKey && !e.metaKey
 
-  if (e.shiftKey) {
-    if (document.activeElement === firstFocusableElement.value) {
+  if (isTabKey && focusableElements.value.length) {
+    if (e.shiftKey) {
+      if (document.activeElement === firstFocusableElement.value) {
+        e.preventDefault()
+        lastFocusableElement.value?.focus()
+      }
+    } else if (document.activeElement === lastFocusableElement.value) {
       e.preventDefault()
-      lastFocusableElement.value?.focus()
+      firstFocusableElement.value?.focus()
     }
-    return
-  }
-
-  if (document.activeElement === lastFocusableElement.value) {
-    e.preventDefault()
-    firstFocusableElement.value?.focus()
   }
 }
 
 const updateFocusableElements = () => {
   if (!isVisible.value || !modalRef.value) return
+
   focusableElements.value = Array.from(modalRef.value.querySelectorAll(focusableSelectors)) as HTMLElement[]
+
   if (focusableElements.value.length) {
     firstFocusableElement.value = focusableElements.value[0]
     lastFocusableElement.value = focusableElements.value[focusableElements.value.length - 1]
@@ -63,15 +64,19 @@ const showModal = () => {
   document.body.style.overflow = 'hidden'
   document.body.style.pointerEvents = 'none'
   app.style.paddingRight = `${scrollbarWidth}px`
+
   isVisible.value = true
   modalState.value = 'open'
+
   nextTick(() => updateFocusableElements())
 }
 
 const hideModal = () => {
   modalState.value = 'closed'
+
   setTimeout(() => {
     isVisible.value = false
+
     app.style.removeProperty('padding-right')
     document.body.style.removeProperty('overflow')
     document.body.style.removeProperty('pointer-events')
