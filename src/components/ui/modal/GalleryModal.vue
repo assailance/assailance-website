@@ -182,9 +182,9 @@ onUnmounted(() => {
 .slide-left-leave-active,
 .slide-right-enter-active,
 .slide-right-leave-active {
-  transition-property: transform, opacity;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
+  transition:
+    transform 0.15s ease-in-out,
+    opacity 0.15s ease-in-out;
 }
 
 .slide-left-enter-from,
