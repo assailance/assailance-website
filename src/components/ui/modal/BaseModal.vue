@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref, useTemplateRef, watch } from 'vue'
+import { nextTick, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 
 const model = defineModel<boolean>({ required: true })
 
@@ -99,9 +99,15 @@ const hideModal = () => {
 watch(model, value => {
   if (value) {
     showModal()
+    document.addEventListener('keydown', handleKeyDown)
   } else {
     hideModal()
+    document.removeEventListener('keydown', handleKeyDown)
   }
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeyDown)
 })
 
 defineExpose({
@@ -129,7 +135,6 @@ defineExpose({
       :aria-hidden="!isVisible"
       :data-state="modalState"
       class="data-[state=open]:animate-modal-in data-[state=closed]:animate-modal-out pointer-events-auto fixed inset-0 top-0 left-0 z-[9999] h-full w-full"
-      @keydown="handleKeyDown"
       @click.self="close"
     >
       <slot />
