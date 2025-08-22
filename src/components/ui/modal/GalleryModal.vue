@@ -119,7 +119,7 @@ onUnmounted(() => {
 <template>
   <BaseModal ref="baseModal" v-model="model">
     <!-- Image -->
-    <Transition :name="currentEffect as string">
+    <Transition :name="currentEffect || ''">
       <img
         ref="image"
         :key="currentIndex"
