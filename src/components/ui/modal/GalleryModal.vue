@@ -12,16 +12,22 @@ const props = defineProps<{
 }>()
 
 const baseModalRef = useTemplateRef<InstanceType<typeof BaseModal>>('baseModal')
+const imageRef = useTemplateRef<HTMLImageElement>('image')
 const prevButtonRef = useTemplateRef<HTMLButtonElement>('prevButton')
 const nextButtonRef = useTemplateRef<HTMLButtonElement>('nextButton')
 const currentIndex = ref<number>(0)
 const currentEffect = ref<'slide-left' | 'slide-right' | null>(null)
+
+const scale = ref<number>(1)
+const offsetX = ref<number>(0)
+const offsetY = ref<number>(0)
 
 const hasSomeImages = computed(() => props.images.length > 1)
 const currentImage = computed(() => props.images[currentIndex.value])
 const currentAlt = computed(() => `Image ${currentIndex.value + 1} of ${props.images.length}`)
 
 const nextImage = () => {
+  imageRef.value?.removeAttribute('style')
   currentEffect.value = 'slide-left'
   if (currentIndex.value < props.images.length - 1) {
     currentIndex.value++
@@ -31,6 +37,7 @@ const nextImage = () => {
 }
 
 const prevImage = () => {
+  imageRef.value?.removeAttribute('style')
   currentEffect.value = 'slide-right'
   if (currentIndex.value > 0) {
     currentIndex.value--
@@ -57,6 +64,43 @@ const handleKeyDown = (e: KeyboardEvent) => {
   }
 }
 
+const handleWheel = (e: WheelEvent) => {
+  if (!imageRef.value) return
+
+  e.preventDefault()
+
+  const delta = -e.deltaY * 0.001
+  const newScale = Math.max(0.1, Math.min(5, scale.value + delta))
+
+  const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+  const mouseX = e.clientX - rect.left
+  const mouseY = e.clientY - rect.top
+  const originX = (mouseX - offsetX.value - rect.width / 2) / scale.value
+  const originY = (mouseY - offsetY.value - rect.height / 2) / scale.value
+
+  scale.value = newScale
+
+  if (scale.value <= 1) {
+    offsetX.value = 0
+    offsetY.value = 0
+  } else {
+    offsetX.value = mouseX - rect.width / 2 - originX * scale.value
+    offsetY.value = mouseY - rect.height / 2 - originY * scale.value
+
+    const imgWidth = imageRef.value.naturalWidth * scale.value
+    const imgHeight = imageRef.value.naturalHeight * scale.value
+    const minX = -(imgWidth - rect.width) / 2
+    const maxX = (imgWidth - rect.width) / 2
+    const minY = -(imgHeight - rect.height) / 2
+    const maxY = (imgHeight - rect.height) / 2
+
+    offsetX.value = Math.min(Math.max(offsetX.value, minX), maxX)
+    offsetY.value = Math.min(Math.max(offsetY.value, minY), maxY)
+  }
+
+  imageRef.value?.setAttribute('style', `transform: translate(${offsetX.value}px, ${offsetY.value}px) scale(${scale.value})`)
+}
+
 watch(model, value => {
   if (!hasSomeImages.value) return
 
@@ -68,9 +112,7 @@ watch(model, value => {
 })
 
 onUnmounted(() => {
-  if (hasSomeImages.value) {
-    document.removeEventListener('keydown', handleKeyDown, true)
-  }
+  document.removeEventListener('keydown', handleKeyDown, true)
 })
 </script>
 
@@ -79,12 +121,14 @@ onUnmounted(() => {
     <!-- Image -->
     <Transition :name="currentEffect as string">
       <img
+        ref="image"
         :key="currentIndex"
         :src="currentImage"
         :alt="currentAlt"
-        class="absolute top-1/2 left-1/2 max-h-[80vh] max-w-full -translate-1/2"
+        class="absolute top-1/2 left-1/2 max-h-[90vh] max-w-full -translate-1/2 transition-transform duration-200"
         draggable="false"
         :aria-description="currentAlt"
+        @wheel="handleWheel"
       />
     </Transition>
     <!-- /Image -->
