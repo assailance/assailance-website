@@ -136,6 +136,7 @@ onUnmounted(() => {
     <button
       v-if="hasSomeImages"
       ref="prevButton"
+      type="button"
       class="bg-overlay-element hover:bg-overlay-element-hover absolute top-1/2 left-4 flex h-28 w-14 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
       aria-label="Previous image"
       @click="prevImage"
@@ -148,6 +149,7 @@ onUnmounted(() => {
     <button
       v-if="hasSomeImages"
       ref="nextButton"
+      type="button"
       class="bg-overlay-element hover:bg-overlay-element-hover absolute top-1/2 right-4 flex h-28 w-14 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
       aria-label="Next image"
       @click="nextImage"
@@ -160,6 +162,7 @@ onUnmounted(() => {
     <button
       class="bg-overlay-element hover:bg-overlay-element-hover absolute top-4 right-4 flex size-14 items-center justify-center rounded-lg text-gray-300/75 transition-colors duration-200 hover:text-gray-300"
       aria-label="Close gallery"
+      type="button"
       @click="baseModalRef?.close()"
     >
       <XIcon class="size-6" />
