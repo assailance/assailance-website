@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ImagesIcon from '@/components/icons/ImagesIcon.vue'
-import GalleryModal from '@/components/ui/modal/GalleryModal.vue'
+import { GalleryModal } from '@/components/ui/modal'
 import { shallowRef } from 'vue'
 import CardContent from './CardContent.vue'
 import type { ICardWithImageProps } from './types.ts'
