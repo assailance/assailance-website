@@ -127,6 +127,7 @@ onUnmounted(() => {
         :alt="currentAlt"
         class="absolute top-1/2 left-1/2 max-h-[90vh] max-w-full -translate-1/2 transition-transform duration-200"
         draggable="false"
+        loading="lazy"
         @wheel="handleWheel"
       />
     </Transition>
