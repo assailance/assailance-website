@@ -8,7 +8,12 @@ import { Card, CardList } from '@/components/ui/card-list'
     <!-- Repositories -->
     <CardList>
       <Card title="Github README" title-link="https://github.com/assailance/assailance" description="Main github page with more info about me." />
-      <Card title="Plasma Dotfiles" title-link="https://github.com/assailance/plasma-dotfiles" description="My KDE Plasma dotfiles and configuration." />
+      <Card
+        title="Plasma Dotfiles"
+        title-link="https://github.com/assailance/plasma-dotfiles"
+        description="My KDE Plasma dotfiles and configuration."
+        :tags="['KDE', 'X11', 'Wayland']"
+      />
       <Card
         title="First Project"
         title-link="https://github.com/assailance/proj2"
