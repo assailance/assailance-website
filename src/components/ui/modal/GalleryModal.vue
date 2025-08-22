@@ -190,13 +190,13 @@ onUnmounted(() => {
 
 .slide-left-enter-from,
 .slide-right-leave-to {
-  transform: translateX(100%);
+  transform: translateX(50%);
   opacity: 0;
 }
 
 .slide-left-leave-to,
 .slide-right-enter-from {
-  transform: translateX(-100%);
+  transform: translateX(-50%);
   opacity: 0;
 }
 </style>
