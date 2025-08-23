@@ -49,8 +49,8 @@ const changeTheme = () => {
         class="text-accent bg-global-bg/85 sm:divide-accent/75 absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-md py-4 shadow backdrop-blur-sm group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:divide-x sm:rounded-none sm:bg-transparent sm:py-0 sm:shadow-none sm:backdrop-blur-none"
       >
         <a href="/" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0"> Home </a>
-        <a href="#projects" class="cursor-pointer px-4 py-4 underline-offset-2 hover:underline sm:py-0">Projects</a>
-        <a href="#stack" class="cursor-pointer px-4 py-4 underline-offset-2 hover:underline sm:py-0">Stack</a>
+        <a href="#projects" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Projects</a>
+        <a href="#stack" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Stack</a>
       </nav>
       <!-- /Navigation -->
     </div>
