@@ -1,5 +1,5 @@
 {
-  "name": "assailance-site",
+  "name": "assailance-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,7 @@
     "format": "eslint . --fix"
   },
   "dependencies": {
-    "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "vue": "^3.5.17"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.0",
