@@ -6,6 +6,9 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [vue(), tailwindcss()],
+  define: {
+    __VUE_OPTIONS_API__: 'false'
+  },
   server: {
     host: '127.0.0.1',
     port: 5173,
