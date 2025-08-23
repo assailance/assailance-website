@@ -11,13 +11,15 @@ const emailUrl = import.meta.env.VITE_EMAIL_URL
 <template>
   <section>
     <!-- Info -->
-    <div class="mb-2 text-2xl font-semibold">
-      <h1>Hi, I'm</h1>
-      <div class="text-accent mt-2">
+    <h1 class="mb-2 text-2xl font-semibold">
+      <span>Hi, I'm</span> <br />
+      <span class="sr-only">Ilya</span>
+      <span class="text-accent mt-2 inline-block" aria-hidden="true">
         <span class="text-sm text-gray-400">(en) </span>Ilya <br />
-        <span class="text-sm text-gray-400">(ru) </span>Илья <br />
-      </div>
-    </div>
+        <span class="text-sm text-gray-400">(ja) </span>イリヤ <br />
+        <span class="text-sm text-gray-400">(zh) </span>伊利亞 <br />
+      </span>
+    </h1>
     <p class="mb-6 text-lg">(he/him)</p>
     <p class="mb-8 text-lg">web dev (backend / frontend), creating bots and automating scripts.</p>
     <!-- /Info -->
