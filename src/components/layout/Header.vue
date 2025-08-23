@@ -23,7 +23,7 @@ const changeTheme = () => {
       <!-- Logo -->
       <a href="/" class="inline-flex items-center sm:relative sm:inline-block">
         <img
-          src="@/assets/images/dark-avatar.webp"
+          src="/dark-avatar.webp"
           alt="assailance"
           loading="eager"
           decoding="async"
@@ -32,7 +32,7 @@ const changeTheme = () => {
           class="me-4 inline-block size-16 rounded-md sm:absolute sm:start-[-5rem] sm:me-0 sm:h-16 sm:w-16 dark:hidden"
         />
         <img
-          src="@/assets/images/light-avatar.webp"
+          src="/light-avatar.webp"
           alt="assailance"
           loading="eager"
           decoding="async"
