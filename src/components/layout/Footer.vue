@@ -6,6 +6,8 @@ import { nextTick, shallowRef, useTemplateRef } from 'vue'
 
 const { add } = useToast()
 
+const endpoint = import.meta.env.VITE_SEND_MESSAGE_ENDPOINT
+
 const messageRef = useTemplateRef<HTMLInputElement>('message')
 const text = shallowRef<string>('')
 const isSending = shallowRef<boolean>(false)
@@ -15,7 +17,7 @@ const send = async () => {
   isSending.value = true
 
   try {
-    const res = await fetch(`http://localhost:80/send-message?text=${encodeURIComponent(text.value)}`)
+    const res = await fetch(`${endpoint}?text=${encodeURIComponent(text.value)}`)
 
     if (!res.ok) throw new Error()
 
