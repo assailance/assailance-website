@@ -40,10 +40,13 @@ const send = async () => {
     <!-- /Divider -->
 
     <!-- Send Message -->
-    <div class="mb-12 flex gap-x-10">
-      <div class="w-1/4 rounded-xl bg-gray-400"></div>
+    <div class="xs:flex-row mb-12 flex flex-col items-center gap-x-6 gap-y-4 sm:gap-x-8">
+      <div class="xs:w-min xs:min-w-32 not-xs:h-[72px] w-full self-stretch overflow-hidden rounded-2xl">
+        <img src="/badge-dark.gif" alt="footer-badge" class="h-full w-full object-cover not-dark:hidden" loading="lazy" />
+        <img src="/badge-light.gif" alt="footer-badge" class="h-full w-full object-cover dark:hidden" loading="lazy" />
+      </div>
       <!-- Form -->
-      <form class="flex w-3/4 flex-col gap-y-2 text-xs" aria-describedby="form-desc" @submit.prevent="send">
+      <form class="flex h-full w-full flex-col gap-y-2 text-xs" aria-describedby="form-desc" @submit.prevent="send">
         <div class="flex items-center gap-x-2.5">
           <!-- Loader -->
           <LoaderCircle v-if="isSending" class="text-global-text animate-spin" />
@@ -68,7 +71,7 @@ const send = async () => {
           </button>
         </div>
         <!-- Description -->
-        <p id="form-desc" class="text-global-text/75">Send me anonymous message in telegram.</p>
+        <p id="form-desc" class="text-global-text/75">Send me an anonymous message on telegram.</p>
         <!-- /Description -->
         <div aria-live="polite" class="sr-only">
           {{ isSending ? 'Sending message…' : '' }}
@@ -79,13 +82,15 @@ const send = async () => {
     <!-- /Send Message -->
 
     <!-- Bottom -->
-    <div class="flex items-center justify-between text-center text-xs font-semibold text-gray-600 dark:text-gray-400">
+    <div
+      class="flex flex-col items-center justify-center gap-y-2 text-center align-top font-semibold text-gray-600 sm:flex-row sm:justify-between sm:text-xs dark:text-gray-400"
+    >
       <div class="me-0 sm:me-4">© ၜassailance 2025.<span class="inline-block">&nbsp;🍙️&nbsp;(◕‿◕)</span></div>
       <!-- Navigation -->
       <nav aria-label="More on this site" class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500">
         <!-- Links -->
         <a href="/" class="hover:text-global-text px-4 py-2 hover:underline sm:py-0">Home</a>
-        <a href="#projects" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Projects</a>
+        <a href="#projects" class="px-4 py-2 underline-offset-2 hover:underline sm:py-0">Projects</a>
         <!-- /Links -->
       </nav>
       <!-- /Navigation -->

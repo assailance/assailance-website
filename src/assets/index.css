@@ -31,6 +31,8 @@ body > #app[data-theme='dark'],
 }
 
 @theme {
+  --breakpoint-xs: 30rem;
+
   --color-global-bg: var(--color-global-bg);
   --color-global-text: var(--color-global-text);
   --color-secondary-bg: var(--color-secondary-bg);
@@ -40,7 +42,6 @@ body > #app[data-theme='dark'],
   --color-accent: var(--color-accent);
   --color-accent-2: var(--color-accent-2);
   --color-quote: var(--color-quote);
-
   --color-overlay: rgba(24, 24, 27, 0.95);
   --color-overlay-element: rgba(54, 54, 54, 0.75);
   --color-overlay-element-hover: rgba(54, 54, 54, 0.95);
