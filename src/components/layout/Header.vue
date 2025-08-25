@@ -1,11 +1,16 @@
 <script setup lang="ts">
+import MenuIcon from '@/components/icons/MenuIcon.vue'
 import MoonIcon from '@/components/icons/MoonIcon.vue'
 import SunIcon from '@/components/icons/SunIcon.vue'
+import XIcon from '@/components/icons/XIcon.vue'
 import { useTheme } from '@/composables/theme.composable.ts'
 import { useToast } from '@/composables/toast.composable.ts'
+import { ref } from 'vue'
 
 const { add } = useToast()
 const { toggleTheme } = useTheme()
+
+const menuOpen = ref<boolean>(false)
 
 const changeTheme = () => {
   try {
@@ -17,11 +22,11 @@ const changeTheme = () => {
 </script>
 
 <template>
-  <header class="group relative mb-28 flex items-center sm:ps-18">
+  <header class="group xs:ps-18 relative mb-28 flex items-center">
     <!-- Left -->
-    <div class="flex sm:flex-col">
+    <div class="xs:flex-col flex">
       <!-- Logo -->
-      <a href="/" class="inline-flex items-center sm:relative sm:inline-block">
+      <a href="/" class="xs:relative xs:inline-block inline-flex items-center">
         <img
           src="/dark-avatar.webp"
           alt="assailance"
@@ -29,7 +34,7 @@ const changeTheme = () => {
           decoding="async"
           width="64"
           height="64"
-          class="me-4 inline-block size-16 rounded-md sm:absolute sm:start-[-5rem] sm:me-0 sm:h-16 sm:w-16 dark:hidden"
+          class="xs:absolute xs:start-[-5rem] xs:me-0 xs:size-16 me-3 size-14 rounded-md dark:hidden"
         />
         <img
           src="/light-avatar.webp"
@@ -38,38 +43,53 @@ const changeTheme = () => {
           decoding="async"
           width="64"
           height="64"
-          class="me-4 size-16 rounded-md not-dark:hidden sm:absolute sm:start-[-5rem] sm:me-0 sm:h-16 sm:w-16"
+          class="xs:absolute xs:start-[-5rem] xs:me-0 xs:size-16 me-3 size-14 rounded-md not-dark:hidden"
         />
-        <span class="text-xl font-bold sm:text-2xl">ၜassailance</span>
+        <span class="xs:text-2xl text-lg font-bold">ၜassailance</span>
       </a>
       <!-- /Logo -->
 
       <!-- Navigation -->
       <nav
-        class="text-accent bg-global-bg/85 sm:divide-accent/75 absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-md py-4 shadow backdrop-blur-sm group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:divide-x sm:rounded-none sm:bg-transparent sm:py-0 sm:shadow-none sm:backdrop-blur-none"
+        :data-open="menuOpen"
+        aria-label="Main menu"
+        class="text-accent bg-secondary-bg/25 xs:divide-accent/75 xs:visible xs:static xs:z-auto xs:-ms-4 xs:mt-1 xs:flex xs:flex-row xs:items-center xs:divide-x xs:rounded-none xs:bg-transparent xs:px-0 xs:py-0 xs:shadow-none xs:backdrop-blur-none invisible absolute -inset-x-2 top-12 z-50 hidden flex-col items-end gap-y-4 rounded-md px-2 py-4 shadow backdrop-blur-sm data-[open=true]:visible data-[open=true]:z-50 data-[open=true]:flex"
       >
-        <a href="/" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0"> Home </a>
-        <a href="#projects" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Projects</a>
-        <a href="#stack" class="px-4 py-4 underline-offset-2 hover:underline sm:py-0">Stack</a>
+        <a href="#" class="xs:py-0 px-4 py-2 underline-offset-2 hover:underline">Home</a>
+        <a href="#projects" class="xs:py-0 px-4 py-2 underline-offset-2 hover:underline">Projects</a>
+        <a href="#stack" class="xs:py-0 px-4 py-2 underline-offset-2 hover:underline">Stack</a>
       </nav>
       <!-- /Navigation -->
     </div>
     <!-- /Left -->
 
     <!-- Theme -->
-    <div class="ms-2 sm:ms-auto">
-      <button
-        v-press-animate
-        class="hover:text-accent relative size-9 cursor-pointer rounded-md p-2 transition-transform duration-200 hover:scale-105"
-        type="button"
-        role="switch"
-        @click="changeTheme"
-      >
-        <span class="sr-only">Dark Theme</span>
-        <MoonIcon class="absolute start-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 not-dark:hidden" />
-        <SunIcon class="absolute start-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:hidden" />
-      </button>
-    </div>
+    <button
+      v-press-animate
+      class="hover:text-accent relative ms-auto flex size-9 cursor-pointer items-center justify-center rounded-md transition-transform duration-200 hover:scale-105"
+      type="button"
+      role="switch"
+      @click="changeTheme"
+    >
+      <span class="sr-only">Dark Theme</span>
+      <MoonIcon class="not-dark:hidden" />
+      <SunIcon class="dark:hidden" />
+    </button>
     <!-- /Theme -->
+
+    <!-- Open Menu -->
+    <button
+      v-press-animate
+      :aria-expanded="menuOpen"
+      aria-haspopup="menu"
+      type="button"
+      class="group xs:invisible xs:hidden ms-2 transition-transform duration-200 hover:scale-105"
+      @click="menuOpen = !menuOpen"
+    >
+      <span class="sr-only">Open main menu</span>
+      <XIcon v-if="menuOpen" class="text-global-text/75 !size-7" />
+      <MenuIcon v-else />
+    </button>
+    <!-- /Open Menu -->
   </header>
 </template>
