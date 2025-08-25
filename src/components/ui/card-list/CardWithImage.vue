@@ -12,7 +12,7 @@ const galleryOpen = shallowRef<boolean>(false)
 
 <template>
   <article class="overflow-hidden rounded-lg shadow-md">
-    <div class="relative h-40">
+    <div class="xs:h-40 relative h-32">
       <!-- First Image -->
       <img :src="images[0]" class="absolute h-full w-full object-cover" :alt="title" />
       <!-- /First Image -->

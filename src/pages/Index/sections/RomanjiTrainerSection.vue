@@ -55,13 +55,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="mt-20 mb-10">
+  <section class="mt-20">
     <!-- Header -->
     <h2 class="mb-2.5 text-xl">Romanji Trainer <span class="text-sm text-gray-400">(fan)</span></h2>
     <p class="mb-12 text-gray-600 dark:text-gray-400">Mini game for learning hiragana and katakana.</p>
     <!-- /Header -->
     <!-- Mini Game -->
-    <div class="mx-auto max-w-2/3 text-center">
+    <div class="mx-auto text-center sm:max-w-[500px]">
       <!-- Stats -->
       <div class="mb-16 flex items-center justify-between px-2.5">
         <!-- Star -->
@@ -91,7 +91,7 @@ onMounted(() => {
       <!-- /Question -->
       <!-- Answers -->
       <Transition name="fade-slide" mode="out-in" :duration="200">
-        <div :key="question as string" class="mt-8 grid grid-cols-2 gap-5">
+        <div :key="question as string" class="xs:gap-5 mt-8 grid grid-cols-2 gap-3">
           <button
             v-for="option in options"
             :key="option"

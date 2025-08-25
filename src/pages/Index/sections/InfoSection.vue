@@ -25,9 +25,9 @@ const emailUrl = import.meta.env.VITE_EMAIL_URL
     <!-- /Info -->
     <!-- Socials -->
     <div class="flex flex-wrap items-end gap-x-2">
-      <ul class="grid grid-cols-4 items-center gap-x-4 gap-y-6 sm:flex-initial sm:grid-cols-8">
+      <ul class="xs:gap-x-8 flex items-center gap-x-6">
         <!-- Github -->
-        <li class="mr-3 text-center">
+        <li class="text-center">
           <a class="group sm:hover:text-link mb-1 inline-block" :href="githubUrl" rel="noreferrer me" target="_blank">
             <GithubIcon class="transition-all duration-150 group-hover:scale-105" />
             <span class="sr-only">GitHub</span>
@@ -36,7 +36,7 @@ const emailUrl = import.meta.env.VITE_EMAIL_URL
         </li>
         <!-- /Github -->
         <!-- Telegram -->
-        <li class="mr-3 text-center">
+        <li class="text-center">
           <a class="group sm:hover:text-link mb-1 inline-block" :href="telegramUrl" rel="noreferrer me" target="_blank">
             <TelegramIcon class="transition-all duration-150 group-hover:scale-105" />
             <span class="sr-only">Telegram</span>
@@ -45,7 +45,7 @@ const emailUrl = import.meta.env.VITE_EMAIL_URL
         </li>
         <!-- /Telegram -->
         <!-- Email -->
-        <li class="mr-3 text-center">
+        <li class="text-center">
           <a class="group sm:hover:text-link mb-1 inline-block" :href="emailUrl" rel="noreferrer" target="_blank">
             <EmailIcon class="transition-all duration-150 group-hover:scale-105" />
             <span class="sr-only">Email</span>

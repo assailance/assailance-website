@@ -34,9 +34,9 @@ const send = async () => {
 </script>
 
 <template>
-  <footer class="pt-16 pb-6">
+  <footer class="pt-16 pb-6 sm:pt-20">
     <!-- Divider -->
-    <div class="bg-border mx-auto mb-12 h-px w-12"></div>
+    <div class="bg-border mx-auto mb-16 h-px w-16 sm:mb-20"></div>
     <!-- /Divider -->
 
     <!-- Send Message -->

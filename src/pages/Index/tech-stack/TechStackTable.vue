@@ -23,9 +23,11 @@ import VueIcon from '@/components/icons/VueIcon.vue'
     <tbody class="border-border border">
       <!-- Languages -->
       <tr class="border-border border-b">
-        <td class="border-border border-r p-6 text-center text-base whitespace-nowrap">Languages</td>
+        <td class="border-border xs:py-6 border-r px-6 py-4 text-center text-base whitespace-nowrap not-sm:rotate-180 not-sm:[writing-mode:vertical-rl]">
+          Languages
+        </td>
         <td class="p-6">
-          <ul class="flex flex-wrap gap-x-5 gap-y-5">
+          <ul class="not-xs:justify-center flex flex-wrap gap-5">
             <li class="flex flex-col items-center gap-y-2.5">
               <PythonIcon />
               <span class="text-xs tracking-wider">Python</span>
@@ -48,28 +50,30 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       <!-- /Languages -->
       <!-- Frontend -->
       <tr class="border-border border-b">
-        <td class="border-border border-r p-6 text-center text-base whitespace-nowrap">Frontend</td>
+        <td class="border-border xs:py-6 border-r px-6 py-4 text-center text-base whitespace-nowrap not-sm:rotate-180 not-sm:[writing-mode:vertical-rl]">
+          Frontend
+        </td>
         <td class="p-6">
-          <ul class="flex flex-wrap gap-x-5">
+          <ul class="not-xs:justify-center flex flex-wrap gap-5">
             <li class="flex flex-col items-center gap-y-2.5">
-              <HtmlIcon />
-              <span class="text-xs tracking-wider">HTML</span>
-            </li>
-            <li class="flex flex-col items-center gap-y-2.5">
-              <CssIcon />
-              <span class="text-xs tracking-wider">CSS</span>
+              <VueIcon />
+              <span class="text-xs tracking-wider">Vue</span>
             </li>
             <li class="flex flex-col items-center gap-y-2.5">
               <TailwindIcon />
               <span class="text-xs tracking-wider">Tailwind</span>
             </li>
             <li class="flex flex-col items-center gap-y-2.5">
-              <VueIcon />
-              <span class="text-xs tracking-wider">Vue</span>
+              <CssIcon />
+              <span class="text-xs tracking-wider">CSS</span>
             </li>
             <li class="flex flex-col items-center gap-y-2.5">
               <BootstrapIcon />
               <span class="text-xs tracking-wider">Bootstrap</span>
+            </li>
+            <li class="flex flex-col items-center gap-y-2.5">
+              <HtmlIcon />
+              <span class="text-xs tracking-wider">HTML</span>
             </li>
             <li class="flex flex-col items-center gap-y-2.5">
               <JqueryIcon />
@@ -81,9 +85,11 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       <!-- /Frontend -->
       <!-- Backend -->
       <tr class="border-border border-b">
-        <td class="border-border border-r p-6 text-center text-base whitespace-nowrap">Backend</td>
+        <td class="border-border xs:py-6 border-r px-6 py-4 text-center text-base whitespace-nowrap not-sm:rotate-180 not-sm:[writing-mode:vertical-rl]">
+          Backend
+        </td>
         <td class="p-6">
-          <ul class="flex flex-wrap gap-x-5">
+          <ul class="not-xs:justify-center flex flex-wrap gap-5">
             <li class="flex flex-col items-center gap-y-2.5">
               <DjangoIcon />
               <span class="text-xs tracking-wider">Django</span>
@@ -102,9 +108,11 @@ import VueIcon from '@/components/icons/VueIcon.vue'
       <!-- /Backend -->
       <!-- Tools and DevOps -->
       <tr>
-        <td class="border-border border-r p-6 text-center text-base whitespace-nowrap">Tools / DevOps</td>
+        <td class="border-border xs:py-6 border-r px-6 py-4 text-center text-base whitespace-nowrap not-sm:rotate-180 not-sm:[writing-mode:vertical-rl]">
+          Tools
+        </td>
         <td class="p-6">
-          <ul class="flex flex-wrap gap-x-5">
+          <ul class="not-xs:justify-center flex flex-wrap gap-5">
             <li class="flex flex-col items-center gap-y-2.5">
               <GitIcon />
               <span class="text-xs tracking-wider">Git</span>

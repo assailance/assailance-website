@@ -24,7 +24,7 @@ import { Card, CardList } from '@/components/ui/card-list'
     </CardList>
     <!-- /Repositories -->
     <!-- View all -->
-    <div class="mt-4 sm:text-end">
+    <div class="mt-6 text-end sm:mt-4">
       <a
         aria-label="View all repositories"
         class="group sm:hover:text-accent transition-colors duration-200"

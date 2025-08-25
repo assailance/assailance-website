@@ -22,8 +22,8 @@ import VueIcon from '@/components/icons/VueIcon.vue'
   <ul class="flex flex-col gap-y-5">
     <!-- Languages -->
     <li>
-      <p class="mb-2.5 text-lg">Languages:</p>
-      <ul class="flex w-auto flex-wrap gap-x-7">
+      <p class="mb-3.5 text-lg">Languages:</p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-4">
         <li class="flex flex-col items-center gap-y-2.5">
           <PythonIcon />
           <span class="text-xs tracking-wider">Python</span>
@@ -46,27 +46,27 @@ import VueIcon from '@/components/icons/VueIcon.vue'
     <li class="bg-global-text mb-4 h-[0.5px] w-40" />
     <!-- Frontend -->
     <li>
-      <p class="mb-2.5 text-lg">Frontend:</p>
-      <ul class="flex flex-wrap gap-x-7">
+      <p class="mb-3.5 text-lg">Frontend:</p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-3.5">
         <li class="flex flex-col items-center gap-y-2.5">
-          <HtmlIcon />
-          <span class="text-xs tracking-wider">HTML</span>
-        </li>
-        <li class="flex flex-col items-center gap-y-2.5">
-          <CssIcon />
-          <span class="text-xs tracking-wider">CSS</span>
+          <VueIcon />
+          <span class="text-xs tracking-wider">Vue</span>
         </li>
         <li class="flex flex-col items-center gap-y-2.5">
           <TailwindIcon />
           <span class="text-xs tracking-wider">Tailwind</span>
         </li>
         <li class="flex flex-col items-center gap-y-2.5">
-          <VueIcon />
-          <span class="text-xs tracking-wider">Vue</span>
+          <CssIcon />
+          <span class="text-xs tracking-wider">CSS</span>
         </li>
         <li class="flex flex-col items-center gap-y-2.5">
           <BootstrapIcon />
           <span class="text-xs tracking-wider">Bootstrap</span>
+        </li>
+        <li class="flex flex-col items-center gap-y-2.5">
+          <HtmlIcon />
+          <span class="text-xs tracking-wider">HTML</span>
         </li>
         <li class="flex flex-col items-center gap-y-2.5">
           <JqueryIcon />
@@ -78,8 +78,8 @@ import VueIcon from '@/components/icons/VueIcon.vue'
     <li class="bg-global-text mb-4 h-[0.5px] w-40" />
     <!-- Backend -->
     <li>
-      <p class="mb-2.5 text-lg">Backend:</p>
-      <ul class="flex flex-wrap gap-x-7">
+      <p class="mb-3.5 text-lg">Backend:</p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-4">
         <li class="flex flex-col items-center gap-y-2.5">
           <DjangoIcon />
           <span class="text-xs tracking-wider">Django</span>
@@ -98,8 +98,8 @@ import VueIcon from '@/components/icons/VueIcon.vue'
     <li class="bg-global-text mb-4 h-[0.5px] w-40" />
     <!-- Tools and DevOps -->
     <li>
-      <p class="mb-2.5 text-lg">Tools and DevOps:</p>
-      <ul class="flex flex-wrap gap-x-7">
+      <p class="mb-3.5 text-lg">Tools and DevOps:</p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-4">
         <li class="flex flex-col items-center gap-y-2.5">
           <GitIcon />
           <span class="text-xs tracking-wider">Git</span>

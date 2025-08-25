@@ -11,6 +11,6 @@ import TechStackSection from '@/pages/Index/sections/TechStackSection.vue'
   <ProjectsSection />
   <TechStackSection />
   <RepositoriesSection />
-  <div class="bg-border mx-auto mt-20 h-px w-12"></div>
+  <div class="bg-border mx-auto mt-20 h-px w-16"></div>
   <RomanjiTrainerSection />
 </template>

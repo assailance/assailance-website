@@ -30,7 +30,7 @@ provideToast()
 </script>
 
 <template>
-  <div class="z-0 mx-auto flex min-h-screen max-w-3xl flex-col px-6 pt-16 sm:px-8">
+  <div class="xs:px-6 z-0 mx-auto flex min-h-screen max-w-3xl flex-col px-4 pt-16 sm:px-8">
     <Header />
     <main>
       <Index />
