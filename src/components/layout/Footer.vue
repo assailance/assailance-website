@@ -91,6 +91,7 @@ const send = async () => {
         <!-- Links -->
         <a href="/" class="hover:text-global-text px-4 py-2 hover:underline sm:py-0">Home</a>
         <a href="#projects" class="px-4 py-2 underline-offset-2 hover:underline sm:py-0">Projects</a>
+        <a href="#stack" class="px-4 py-2 underline-offset-2 hover:underline sm:py-0">Stack</a>
         <!-- /Links -->
       </nav>
       <!-- /Navigation -->
