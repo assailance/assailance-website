@@ -22,7 +22,7 @@ const changeTheme = () => {
 </script>
 
 <template>
-  <header class="group xs:ps-18 relative mb-28 flex items-center">
+  <header class="group xs:ps-18 xs:mb-28 relative mb-24 flex items-center">
     <!-- Left -->
     <div class="xs:flex-col flex">
       <!-- Logo -->
