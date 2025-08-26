@@ -29,8 +29,7 @@ const changeTheme = () => {
       <a href="/" class="xs:relative xs:inline-block inline-flex items-center">
         <img
           src="/dark-avatar.webp"
-          alt="assailance"
-          loading="eager"
+          alt=""
           decoding="async"
           width="64"
           height="64"
@@ -38,8 +37,7 @@ const changeTheme = () => {
         />
         <img
           src="/light-avatar.webp"
-          alt="assailance"
-          loading="eager"
+          alt=""
           decoding="async"
           width="64"
           height="64"
