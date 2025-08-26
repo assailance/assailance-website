@@ -5,7 +5,7 @@
 body > #app,
 #theme-transition-clip {
   color-scheme: light;
-  --color-global-bg: oklch(98.48% 0 0);
+  --color-global-bg: #FAFAFA;
   --color-global-text: oklch(26.99% 0.0096 235.05);
   --color-secondary-bg: oklch(94.66% 0 0);
   --color-toast-bg: oklch(0.8822 0 0 / 60%);
@@ -19,7 +19,7 @@ body > #app,
 body > #app[data-theme='dark'],
 #theme-transition-clip[data-theme='dark'] {
   color-scheme: dark;
-  --color-global-bg: oklch(0.164 0 89.876);
+  --color-global-bg: #0E0E0E;
   --color-global-text: oklch(83.54% 0 264);
   --color-secondary-bg: oklch(0.196 0 89.876);
   --color-toast-bg: oklch(0.2727 0 0 / 70%);
