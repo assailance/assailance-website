@@ -41,10 +41,11 @@ const send = async () => {
 
     <!-- Send Message -->
     <div class="xs:flex-row mb-12 flex flex-col items-center gap-x-6 gap-y-4 sm:gap-x-8">
-      <div class="xs:w-min xs:min-w-32 not-xs:h-[72px] w-full self-stretch overflow-hidden rounded-2xl">
-        <img src="/badge-dark.gif" alt="" class="h-full w-full object-cover not-dark:hidden" loading="lazy" />
-        <img src="/badge-light.gif" alt="" class="h-full w-full object-cover dark:hidden" loading="lazy" />
-      </div>
+      <div
+        role="presentation"
+        aria-hidden="true"
+        class="gif-decoration xs:w-min xs:min-w-32 not-xs:h-[72px] w-full self-stretch overflow-hidden rounded-2xl bg-cover bg-center"
+      ></div>
       <!-- Form -->
       <form class="flex h-full w-full flex-col gap-y-2 text-xs" aria-describedby="form-desc" @submit.prevent="send">
         <div class="flex items-center gap-x-2.5">
@@ -99,3 +100,13 @@ const send = async () => {
     <!-- /Bottom -->
   </footer>
 </template>
+
+<style scoped>
+:not([data-theme='dark']) .gif-decoration {
+  background-image: url('/badge-light.gif');
+}
+
+[data-theme='dark'] .gif-decoration {
+  background-image: url('/badge-dark.gif');
+}
+</style>
