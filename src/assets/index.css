@@ -2,7 +2,7 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-#app,
+body > #app,
 #theme-transition-clip {
   color-scheme: light;
   --color-global-bg: oklch(98.48% 0 0);
@@ -16,7 +16,7 @@
   --color-quote: oklch(0.1149 0 0);
 }
 
-#app[data-theme='dark'],
+body > #app[data-theme='dark'],
 #theme-transition-clip[data-theme='dark'] {
   color-scheme: dark;
   --color-global-bg: oklch(0.164 0 89.876);
