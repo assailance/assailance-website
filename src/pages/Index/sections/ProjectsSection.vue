@@ -2,6 +2,7 @@
 import { CardList, CardWithImage } from '@/components/ui/card-list'
 
 const skadeshopImages = [
+  '/skadeshop/banner.webp',
   '/skadeshop/1.webp',
   '/skadeshop/2.webp',
   '/skadeshop/3.webp',
@@ -22,9 +23,9 @@ const skadeshopImages = [
     <CardList>
       <CardWithImage
         title="Skadeshop"
-        title-link="https://github.com/assailance"
-        description="А full-fledged trading platform for selling Minecraft accounts."
-        external-link="https://github.com/assailance"
+        title-link="https://skadeshop.assailance.ru/"
+        description="А full-fledged trading platform for selling minecraft accounts."
+        external-link="https://skadeshop.assailance.ru/"
         :tags="['Python', 'Django', 'DRF', 'Vue', 'JavaScript', 'Tailwind', 'OAuth2']"
         :images="skadeshopImages"
       />
