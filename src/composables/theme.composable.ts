@@ -47,13 +47,25 @@ function animateThemeChange(newTheme: Theme, onComplete: () => void) {
   }, 600)
 }
 
+function setThemeColor(color: string) {
+  let meta = document.querySelector('meta[name="theme-color"]')
+  if (!meta) {
+    meta = document.createElement('meta')
+    meta.setAttribute('name', 'theme-color')
+    document.head.appendChild(meta)
+  }
+  meta.setAttribute('content', color)
+}
+
 export function useTheme() {
   const isThemeChanging = ref<boolean>(false)
 
   const applyTheme = (theme: Theme) => {
     container.setAttribute(THEME_ATTR, theme)
     const containerStyle = getComputedStyle(container)
-    document.body.style.setProperty('--scrollbar-track-bg', containerStyle.getPropertyValue('--color-global-bg'))
+    const containerGlobalBg = containerStyle.getPropertyValue('--color-global-bg')
+    setThemeColor(containerGlobalBg)
+    document.body.style.setProperty('--scrollbar-track-bg', containerGlobalBg)
     document.body.style.setProperty('--scrollbar-thumb-bg', containerStyle.getPropertyValue('--color-global-text'))
     document.body.style.setProperty('--scrollbar-thumb-hover', containerStyle.getPropertyValue('--color-accent-2'))
   }
