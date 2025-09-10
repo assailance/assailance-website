@@ -140,7 +140,7 @@ onUnmounted(() => {
       aria-label="Previous image"
       @click="prevImage"
     >
-      <ChevronLeftIcon class="xs:!size-6 ml-0.5 !size-5 md:!size-8" />
+      <ChevronLeftIcon class="xs:size-6 ml-0.5 size-5 md:size-8" />
     </button>
     <!-- /Prev Button -->
 
@@ -153,7 +153,7 @@ onUnmounted(() => {
       aria-label="Next image"
       @click="nextImage"
     >
-      <ChevronRightIcon class="xs:!size-6 ml-0.5 !size-5 md:!size-8" />
+      <ChevronRightIcon class="xs:size-6 ml-0.5 size-5 md:size-8" />
     </button>
     <!-- /Next Button -->
 

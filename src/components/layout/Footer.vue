@@ -67,7 +67,7 @@ const send = async () => {
             :disabled="isSending || !text"
             class="bg-secondary-bg text-global-text/75 flex size-10 items-center justify-center rounded-lg transition-transform duration-150 not-disabled:hover:scale-[1.03] not-disabled:hover:-rotate-12 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <ChevronRightIcon class="!size-5" />
+            <ChevronRightIcon class="size-5" />
           </button>
         </div>
         <!-- Description -->
