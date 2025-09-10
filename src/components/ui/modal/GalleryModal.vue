@@ -136,11 +136,11 @@ onUnmounted(() => {
       v-if="hasSomeImages"
       ref="prevButton"
       type="button"
-      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-1/2 left-4 flex h-28 w-14 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
+      class="bg-overlay-element hover:bg-overlay-element-hover xs:left-4 xs:h-18 xs:w-12 xs:rounded-xl absolute top-1/2 left-2.5 flex h-14 w-10 -translate-y-1/2 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300 sm:h-20 md:h-28 md:w-14"
       aria-label="Previous image"
       @click="prevImage"
     >
-      <ChevronLeftIcon class="mr-0.5" />
+      <ChevronLeftIcon class="xs:!size-6 ml-0.5 !size-5 md:!size-8" />
     </button>
     <!-- /Prev Button -->
 
@@ -149,29 +149,27 @@ onUnmounted(() => {
       v-if="hasSomeImages"
       ref="nextButton"
       type="button"
-      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-1/2 right-4 flex h-28 w-14 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300/75 transition-all duration-150 hover:text-gray-300"
+      class="bg-overlay-element hover:bg-overlay-element-hover xs:right-4 xs:h-18 xs:w-12 xs:rounded-xl absolute top-1/2 right-2.5 flex h-14 w-10 -translate-y-1/2 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300 sm:h-20 md:h-28 md:w-14"
       aria-label="Next image"
       @click="nextImage"
     >
-      <ChevronRightIcon class="ml-0.5" />
+      <ChevronRightIcon class="xs:!size-6 ml-0.5 !size-5 md:!size-8" />
     </button>
     <!-- /Next Button -->
 
     <!-- Close -->
     <button
-      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-4 right-4 flex size-14 items-center justify-center rounded-lg text-gray-300/75 transition-colors duration-200 hover:text-gray-300"
+      class="bg-overlay-element hover:bg-overlay-element-hover absolute top-4 right-4 flex size-12 items-center justify-center rounded-lg text-gray-300/75 transition-colors duration-200 hover:text-gray-300 md:size-14"
       aria-label="Close gallery"
       type="button"
       @click="baseModalRef?.close()"
     >
-      <XIcon class="size-6" />
+      <XIcon class="size-5 md:size-6" />
     </button>
     <!-- /Close -->
 
     <!-- Number of Image -->
-    <div aria-live="polite" aria-atomic="true" class="absolute top-5 left-4 z-50 rounded-lg px-3.5 py-2.5 text-gray-300">
-      {{ currentIndex + 1 }} of {{ images.length }}
-    </div>
+    <div aria-live="polite" aria-atomic="true" class="absolute top-9 left-6 z-50 rounded-lg text-gray-300">{{ currentIndex + 1 }} of {{ images.length }}</div>
     <!-- /Number of Image -->
   </BaseModal>
 </template>
