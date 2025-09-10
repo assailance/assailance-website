@@ -136,7 +136,7 @@ onUnmounted(() => {
       v-if="hasSomeImages"
       ref="prevButton"
       type="button"
-      class="bg-overlay-element hover:bg-overlay-element-hover xs:left-4 xs:h-18 xs:w-12 xs:rounded-xl absolute top-1/2 left-2.5 flex h-14 w-10 -translate-y-1/2 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300 sm:h-20 md:h-28 md:w-14"
+      class="bg-overlay-element hover:bg-overlay-element-hover xs:left-4 xs:h-18 xs:w-12 xs:rounded-xl absolute top-1/2 left-2.5 flex h-14 w-10 -translate-y-1/2 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300 md:h-24 md:w-14"
       aria-label="Previous image"
       @click="prevImage"
     >
@@ -149,7 +149,7 @@ onUnmounted(() => {
       v-if="hasSomeImages"
       ref="nextButton"
       type="button"
-      class="bg-overlay-element hover:bg-overlay-element-hover xs:right-4 xs:h-18 xs:w-12 xs:rounded-xl absolute top-1/2 right-2.5 flex h-14 w-10 -translate-y-1/2 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300 sm:h-20 md:h-28 md:w-14"
+      class="bg-overlay-element hover:bg-overlay-element-hover xs:right-4 xs:h-18 xs:w-12 xs:rounded-xl absolute top-1/2 right-2.5 flex h-14 w-10 -translate-y-1/2 items-center justify-center rounded-lg text-gray-300/75 transition-all duration-150 hover:text-gray-300 md:h-24 md:w-14"
       aria-label="Next image"
       @click="nextImage"
     >
