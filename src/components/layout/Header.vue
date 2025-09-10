@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import MenuIcon from '@/components/icons/MenuIcon.vue'
-import MoonIcon from '@/components/icons/MoonIcon.vue'
-import SunIcon from '@/components/icons/SunIcon.vue'
-import XIcon from '@/components/icons/XIcon.vue'
+import { MenuIcon, MoonIcon, SunIcon, XIcon } from '@/components/icons'
 import { useTheme } from '@/composables/theme.composable.ts'
 import { useToast } from '@/composables/toast.composable.ts'
 import { ref } from 'vue'

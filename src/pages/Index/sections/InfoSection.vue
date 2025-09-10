@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import EmailIcon from '@/components/icons/EmailIcon.vue'
-import GithubIcon from '@/components/icons/GithubIcon.vue'
-import TelegramIcon from '@/components/icons/TelegramIcon.vue'
+import { EmailIcon, GithubIcon, TelegramIcon } from '@/components/icons'
 
 const githubUrl = import.meta.env.VITE_GITHUB_URL
 const telegramUrl = import.meta.env.VITE_TELEGRAM_URL

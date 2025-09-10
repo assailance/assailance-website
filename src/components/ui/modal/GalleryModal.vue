@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import ChevronLeftIcon from '@/components/icons/ChevronLeftIcon.vue'
-import ChevronRightIcon from '@/components/icons/ChevronRightIcon.vue'
-import XIcon from '@/components/icons/XIcon.vue'
+import { ChevronLeftIcon, ChevronRightIcon, XIcon } from '@/components/icons'
 import { computed, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 import BaseModal from './BaseModal.vue'
 

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import ChevronRightIcon from '@/components/icons/ChevronRightIcon.vue'
-import LoaderCircle from '@/components/icons/LoaderCircle.vue'
+import { ChevronRightIcon, LoaderCircleIcon } from '@/components/icons'
 import { useToast } from '@/composables/toast.composable.ts'
 import { nextTick, shallowRef, useTemplateRef } from 'vue'
 
@@ -50,7 +49,7 @@ const send = async () => {
       <form class="flex h-full w-full flex-col gap-y-2 text-xs" aria-describedby="form-desc" @submit.prevent="send">
         <div class="flex items-center gap-x-2.5">
           <!-- Loader -->
-          <LoaderCircle v-if="isSending" class="text-global-text animate-spin" />
+          <LoaderCircleIcon v-if="isSending" class="text-global-text animate-spin" />
           <!-- /Loader -->
           <!-- Message -->
           <label for="message" class="sr-only">Your message</label>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import StarIcon from '@/components/icons/StarIcon.vue'
+import { StarIcon } from '@/components/icons'
 import { KANA } from '@/constants/kana.const.ts'
 import { onMounted, ref, useTemplateRef } from 'vue'
 

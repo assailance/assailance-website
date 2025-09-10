@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ImagesIcon from '@/components/icons/ImagesIcon.vue'
+import { ImagesIcon } from '@/components/icons'
 import { GalleryModal } from '@/components/ui/modal'
 import { shallowRef } from 'vue'
 import CardContent from './CardContent.vue'

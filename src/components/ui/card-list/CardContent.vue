@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LinkIcon from '@/components/icons/LinkIcon.vue'
+import { LinkIcon } from '@/components/icons'
 import type { ICardProps } from './types.ts'
 
 defineProps<ICardProps>()

@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import BashIcon from '@/components/icons/BashIcon.vue'
-import BootstrapIcon from '@/components/icons/BootstrapIcon.vue'
-import CssIcon from '@/components/icons/CssIcon.vue'
-import DjangoIcon from '@/components/icons/DjangoIcon.vue'
-import DockerIcon from '@/components/icons/DockerIcon.vue'
-import GitIcon from '@/components/icons/GitIcon.vue'
-import HtmlIcon from '@/components/icons/HtmlIcon.vue'
-import JavascriptIcon from '@/components/icons/JavascriptIcon.vue'
-import JqueryIcon from '@/components/icons/JqueryIcon.vue'
-import LinuxIcon from '@/components/icons/LinuxIcon.vue'
-import NginxIcon from '@/components/icons/NginxIcon.vue'
-import PostgresqlIcon from '@/components/icons/PostgresqlIcon.vue'
-import PythonIcon from '@/components/icons/PythonIcon.vue'
-import RedisIcon from '@/components/icons/RedisIcon.vue'
-import TailwindIcon from '@/components/icons/TailwindIcon.vue'
-import TypescriptIcon from '@/components/icons/TypescriptIcon.vue'
-import VueIcon from '@/components/icons/VueIcon.vue'
+import {
+  BashIcon,
+  BootstrapIcon,
+  CssIcon,
+  DjangoIcon,
+  DockerIcon,
+  GitIcon,
+  HtmlIcon,
+  JavascriptIcon,
+  JqueryIcon,
+  LinuxIcon,
+  NginxIcon,
+  PostgresqlIcon,
+  PythonIcon,
+  RedisIcon,
+  TailwindIcon,
+  TypescriptIcon,
+  VueIcon
+} from '@/components/icons'
 </script>
 
 <template>
