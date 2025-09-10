@@ -68,7 +68,7 @@ const handleWheel = (e: WheelEvent) => {
   e.preventDefault()
 
   const delta = -e.deltaY * 0.001
-  const newScale = Math.max(0.1, Math.min(5, scale.value + delta))
+  const newScale = Math.max(0.5, Math.min(5, scale.value + delta))
 
   const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
   const mouseX = e.clientX - rect.left
