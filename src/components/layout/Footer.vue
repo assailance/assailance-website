@@ -11,8 +11,20 @@ const messageRef = useTemplateRef<HTMLInputElement>('message')
 const text = shallowRef<string>('')
 const isSending = shallowRef<boolean>(false)
 
+const focusMessage = async () => {
+  await nextTick()
+  messageRef.value?.focus()
+}
+
 const send = async () => {
   if (!text.value || isSending.value) return
+
+  if (text.value.length > 100) {
+    add('Message is too long')
+    await focusMessage()
+    return
+  }
+
   isSending.value = true
 
   try {
@@ -24,9 +36,8 @@ const send = async () => {
     add('Message sent!')
   } catch {
     add('Failed to send message')
-    await nextTick()
-    messageRef.value?.focus()
   } finally {
+    await focusMessage()
     isSending.value = false
   }
 }
@@ -59,6 +70,7 @@ const send = async () => {
             v-model="text"
             placeholder="Your message"
             :disabled="isSending"
+            maxlength="100"
             class="border-border text-global-text focus:border-global-text placeholder:text-global-text/50 h-10 w-full rounded-lg border px-4 leading-10 outline-none disabled:cursor-not-allowed disabled:opacity-60"
           />
           <!-- /Message -->
