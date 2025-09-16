@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronLeftIcon, ChevronRightIcon, XIcon } from '@/components/icons'
+import { ChevronLeftIcon, ChevronRightIcon, LoaderCircleIcon, XIcon } from '@/components/icons'
 import { computed, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 import BaseModal from './BaseModal.vue'
 
@@ -15,6 +15,7 @@ const prevButtonRef = useTemplateRef<HTMLButtonElement>('prevButton')
 const nextButtonRef = useTemplateRef<HTMLButtonElement>('nextButton')
 const currentIndex = ref<number>(0)
 const currentEffect = ref<'slide-left' | 'slide-right' | null>(null)
+const isLoading = ref<boolean>(true)
 
 const scale = ref<number>(1)
 const offsetX = ref<number>(0)
@@ -126,9 +127,12 @@ onUnmounted(() => {
         class="absolute top-1/2 left-1/2 max-h-[90vh] max-w-full -translate-1/2"
         draggable="false"
         loading="lazy"
+        @load="isLoading = false"
+        @error="isLoading = false"
         @wheel="handleWheel"
       />
     </Transition>
+    <LoaderCircleIcon v-if="isLoading" class="xs:size-9 absolute top-1/2 left-1/2 size-7 -translate-1/2 animate-spin text-gray-300/75" />
     <!-- /Image -->
 
     <!-- Prev Button -->
