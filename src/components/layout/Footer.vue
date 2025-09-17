@@ -37,8 +37,8 @@ const send = async () => {
   } catch {
     add('Failed to send message')
   } finally {
-    await focusMessage()
     isSending.value = false
+    await focusMessage()
   }
 }
 </script>
