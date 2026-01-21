@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { StarIcon } from '@/components/icons'
-import { KANA } from '@/constants/kana.const.ts'
-import { onMounted, ref, useTemplateRef } from 'vue'
+import { StarIcon } from "@/components/icons"
+import { KANA } from "@/constants/kana.const.ts"
+import { onMounted, ref, useTemplateRef } from "vue"
 
 const question = ref<string | null>(null)
 const options = ref<string[]>([])
@@ -10,9 +10,9 @@ const correctAnswer = ref<string | null>(null)
 const totalAnswers = ref<number>(0)
 const correctAnswers = ref<number>(0)
 
-const currentRef = useTemplateRef<HTMLSpanElement>('current')
-const optionRefs = useTemplateRef<HTMLButtonElement[]>('option')
-const starRef = useTemplateRef<HTMLSpanElement>('star')
+const currentRef = useTemplateRef<HTMLSpanElement>("current")
+const optionRefs = useTemplateRef<HTMLButtonElement[]>("option")
+const starRef = useTemplateRef<HTMLSpanElement>("star")
 
 const generateRound = () => {
   const keys = Object.keys(KANA)
@@ -28,22 +28,22 @@ const choose = (answer: string) => {
   isSelected.value = true
 
   const correctOption = optionRefs.value?.find(o => o.textContent === correctAnswer.value) as HTMLButtonElement
-  correctOption.setAttribute('data-correct', 'true')
+  correctOption.setAttribute("data-correct", "true")
 
   if (answer === correctAnswer.value) {
-    currentRef.value?.setAttribute('data-correct', 'true')
-    starRef.value?.setAttribute('data-correct', 'true')
+    currentRef.value?.setAttribute("data-correct", "true")
+    starRef.value?.setAttribute("data-correct", "true")
     correctAnswers.value++
   } else {
     const selectedOption = optionRefs.value?.find(o => o.textContent === answer) as HTMLButtonElement
-    selectedOption.setAttribute('data-correct', 'false')
-    currentRef.value?.setAttribute('data-correct', 'false')
+    selectedOption.setAttribute("data-correct", "false")
+    currentRef.value?.setAttribute("data-correct", "false")
   }
   totalAnswers.value++
 
   setTimeout(() => {
-    starRef.value?.removeAttribute('data-correct')
-    currentRef.value?.removeAttribute('data-correct')
+    starRef.value?.removeAttribute("data-correct")
+    currentRef.value?.removeAttribute("data-correct")
     generateRound()
     isSelected.value = false
   }, 350)

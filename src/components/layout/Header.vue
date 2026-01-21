@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { MenuIcon, MoonIcon, SunIcon, XIcon } from '@/components/icons'
-import { useTheme } from '@/composables/theme.composable.ts'
-import { useToast } from '@/composables/toast.composable.ts'
-import { ref } from 'vue'
+import { MenuIcon, MoonIcon, SunIcon, XIcon } from "@/components/icons"
+import { useTheme } from "@/composables/theme.composable.ts"
+import { useToast } from "@/composables/toast.composable.ts"
+import { ref } from "vue"
 
 const { add } = useToast()
 const { toggleTheme } = useTheme()
@@ -13,7 +13,7 @@ const changeTheme = () => {
   try {
     toggleTheme()
   } catch {
-    add('Unable to toggle theme')
+    add("Unable to toggle theme")
   }
 }
 </script>

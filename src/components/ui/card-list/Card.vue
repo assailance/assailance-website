@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CardContent from './CardContent.vue'
-import type { ICardProps } from './types.ts'
+import CardContent from "./CardContent.vue"
+import type { ICardProps } from "./types.ts"
 
 defineProps<ICardProps>()
 </script>

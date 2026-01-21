@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useToast } from '@/composables/toast.composable.ts'
+import { useToast } from "@/composables/toast.composable.ts"
 
 const { toasts } = useToast()
 </script>

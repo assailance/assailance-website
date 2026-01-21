@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ChevronRightIcon, LoaderCircleIcon } from '@/components/icons'
-import { useToast } from '@/composables/toast.composable.ts'
-import { nextTick, shallowRef, useTemplateRef } from 'vue'
+import { ChevronRightIcon, LoaderCircleIcon } from "@/components/icons"
+import { useToast } from "@/composables/toast.composable.ts"
+import { nextTick, shallowRef, useTemplateRef } from "vue"
 
 const { add } = useToast()
 
 const endpoint = import.meta.env.VITE_SEND_MESSAGE_ENDPOINT
 
-const messageRef = useTemplateRef<HTMLInputElement>('message')
-const text = shallowRef<string>('')
+const messageRef = useTemplateRef<HTMLInputElement>("message")
+const text = shallowRef<string>("")
 const isSending = shallowRef<boolean>(false)
 
 const focusMessage = async () => {
@@ -20,7 +20,7 @@ const send = async () => {
   if (!text.value || isSending.value) return
 
   if (text.value.length > 100) {
-    add('Message is too long')
+    add("Message is too long")
     await focusMessage()
     return
   }
@@ -32,10 +32,10 @@ const send = async () => {
 
     if (!res.ok) throw new Error()
 
-    text.value = ''
-    add('Message sent!')
+    text.value = ""
+    add("Message sent!")
   } catch {
-    add('Failed to send message')
+    add("Failed to send message")
   } finally {
     isSending.value = false
     await focusMessage()
@@ -86,7 +86,7 @@ const send = async () => {
         <p id="form-desc" class="text-global-text/75">Send me an anonymous message on telegram.</p>
         <!-- /Description -->
         <div aria-live="polite" class="sr-only">
-          {{ isSending ? 'Sending message…' : '' }}
+          {{ isSending ? "Sending message…" : "" }}
         </div>
       </form>
       <!-- /Form -->
@@ -113,11 +113,11 @@ const send = async () => {
 </template>
 
 <style scoped>
-:not([data-theme='dark']) .gif-decoration {
-  background-image: url('/badge-light.gif');
+:not([data-theme="dark"]) .gif-decoration {
+  background-image: url("/badge-light.gif");
 }
 
-[data-theme='dark'] .gif-decoration {
-  background-image: url('/badge-dark.gif');
+[data-theme="dark"] .gif-decoration {
+  background-image: url("/badge-dark.gif");
 }
 </style>

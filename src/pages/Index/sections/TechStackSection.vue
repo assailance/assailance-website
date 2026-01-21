@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import TechStackList from '@/pages/Index/tech-stack/TechStackList.vue'
-import TechStackTable from '@/pages/Index/tech-stack/TechStackTable.vue'
-import { nextTick, onMounted, ref } from 'vue'
+import TechStackList from "@/pages/Index/tech-stack/TechStackList.vue"
+import TechStackTable from "@/pages/Index/tech-stack/TechStackTable.vue"
+import { nextTick, onMounted, ref } from "vue"
 
-const tabs = ['Table', 'List']
+const tabs = ["Table", "List"]
 const selected = ref<number>(0)
 const tabRefs = ref<HTMLButtonElement[]>([])
 const highlightStyle = ref({
-  width: '0px',
-  transform: 'translateX(0px)'
+  width: "0px",
+  transform: "translateX(0px)"
 })
 
 const updateHighlight = () => {

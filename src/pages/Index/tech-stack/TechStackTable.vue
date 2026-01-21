@@ -17,7 +17,7 @@ import {
   TailwindIcon,
   TypescriptIcon,
   VueIcon
-} from '@/components/icons'
+} from "@/components/icons"
 </script>
 
 <template>

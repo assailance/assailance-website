@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { nextTick, onUnmounted, ref, useTemplateRef, watch } from 'vue'
+import { nextTick, onUnmounted, ref, useTemplateRef, watch } from "vue"
 
 const model = defineModel<boolean>({ required: true })
 
-const app = document.getElementById('app') as HTMLElement
+const app = document.getElementById("app") as HTMLElement
 const focusableSelectors = [
-  'button:not([disabled])',
-  '[href]',
-  'input:not([disabled])',
-  'select:not([disabled])',
-  'textarea:not([disabled])',
+  "button:not([disabled])",
+  "[href]",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
   '[tabindex]:not([tabindex="-1"]):not([disabled])'
-].join(', ')
+].join(", ")
 
 const isVisible = ref<boolean>(false)
-const modalState = ref<'open' | 'closed'>('closed')
-const modalRef = useTemplateRef<HTMLDivElement>('modal')
+const modalState = ref<"open" | "closed">("closed")
+const modalRef = useTemplateRef<HTMLDivElement>("modal")
 const focusableElements = ref<HTMLElement[]>([])
 const firstFocusableElement = ref<HTMLElement | null>(null)
 const lastFocusableElement = ref<HTMLElement | null>(null)
@@ -26,12 +26,12 @@ const close = () => {
 }
 
 const handleKeyDown = (e: KeyboardEvent) => {
-  if (e.key === 'Escape') {
+  if (e.key === "Escape") {
     close()
     return
   }
 
-  const isTabKey = e.key === 'Tab' && !e.altKey && !e.ctrlKey && !e.metaKey
+  const isTabKey = e.key === "Tab" && !e.altKey && !e.ctrlKey && !e.metaKey
 
   if (isTabKey && focusableElements.value.length) {
     if (e.shiftKey) {
@@ -59,7 +59,7 @@ const updateFocusableElements = () => {
 }
 
 const setInertForOutsideElements = (inert: boolean) => {
-  document.body.querySelectorAll('#app > *').forEach(element => {
+  document.body.querySelectorAll("#app > *").forEach(element => {
     if (element !== modalRef.value) {
       ;(element as HTMLElement).inert = inert
     }
@@ -71,26 +71,26 @@ const showModal = () => {
 
   setInertForOutsideElements(true)
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-  document.body.style.overflow = 'hidden'
-  document.body.style.pointerEvents = 'none'
+  document.body.style.overflow = "hidden"
+  document.body.style.pointerEvents = "none"
   app.style.paddingRight = `${scrollbarWidth}px`
 
   isVisible.value = true
-  modalState.value = 'open'
+  modalState.value = "open"
 
   nextTick(() => updateFocusableElements())
 }
 
 const hideModal = () => {
-  modalState.value = 'closed'
+  modalState.value = "closed"
 
   setTimeout(() => {
     isVisible.value = false
 
     setInertForOutsideElements(false)
-    app.style.removeProperty('padding-right')
-    document.body.style.removeProperty('overflow')
-    document.body.style.removeProperty('pointer-events')
+    app.style.removeProperty("padding-right")
+    document.body.style.removeProperty("overflow")
+    document.body.style.removeProperty("pointer-events")
 
     previouslyFocusedElement.value?.focus()
   }, 135)
@@ -99,15 +99,15 @@ const hideModal = () => {
 watch(model, value => {
   if (value) {
     showModal()
-    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener("keydown", handleKeyDown)
   } else {
     hideModal()
-    document.removeEventListener('keydown', handleKeyDown)
+    document.removeEventListener("keydown", handleKeyDown)
   }
 })
 
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeyDown)
+  document.removeEventListener("keydown", handleKeyDown)
 })
 
 defineExpose({

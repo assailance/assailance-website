@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { XIcon } from '@/components/icons'
-import { useTemplateRef } from 'vue'
-import BaseModal from './BaseModal.vue'
+import { XIcon } from "@/components/icons"
+import { useTemplateRef } from "vue"
+import BaseModal from "./BaseModal.vue"
 
 const model = defineModel<boolean>({ required: true })
 
-const baseModalRef = useTemplateRef<InstanceType<typeof BaseModal>>('baseModal')
+const baseModalRef = useTemplateRef<InstanceType<typeof BaseModal>>("baseModal")
 </script>
 
 <template>

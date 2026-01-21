@@ -1,12 +1,12 @@
-import js from '@eslint/js'
-import prettier from 'eslint-plugin-prettier/recommended'
-import vue from 'eslint-plugin-vue'
-import { defineConfig } from 'eslint/config'
-import globals from 'globals'
-import ts from 'typescript-eslint'
+import js from "@eslint/js"
+import prettier from "eslint-plugin-prettier/recommended"
+import vue from "eslint-plugin-vue"
+import { defineConfig } from "eslint/config"
+import globals from "globals"
+import ts from "typescript-eslint"
 
 export default defineConfig([
-  { ignores: ['dist', 'build', 'coverage'] },
+  { ignores: ["dist", "build", "coverage"] },
 
   // =============================
   // ===== Js/Ts Recommended =====
@@ -18,21 +18,21 @@ export default defineConfig([
   // ===== Browser Globals =====
   // ===========================
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,vue}'],
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts,vue}"],
     languageOptions: { globals: globals.browser }
   },
 
   // =============================
   // ===== ESLint Plugin Vue =====
   // =============================
-  ...vue.configs['flat/recommended'],
+  ...vue.configs["flat/recommended"],
   {
-    files: ['**/*.{vue,ts}'],
+    files: ["**/*.{vue,ts}"],
     languageOptions: {
       parserOptions: { parser: ts.parser }
     },
     rules: {
-      'vue/multi-word-component-names': 'off'
+      "vue/multi-word-component-names": "off"
     }
   },
 

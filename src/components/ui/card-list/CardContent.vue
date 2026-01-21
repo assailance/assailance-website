@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { LinkIcon } from '@/components/icons'
-import type { ICardProps } from './types.ts'
+import { LinkIcon } from "@/components/icons"
+import type { ICardProps } from "./types.ts"
 
 defineProps<ICardProps>()
 </script>

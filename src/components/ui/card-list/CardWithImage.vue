@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ImagesIcon } from '@/components/icons'
-import { GalleryModal } from '@/components/ui/modal'
-import { shallowRef } from 'vue'
-import CardContent from './CardContent.vue'
-import type { ICardWithImageProps } from './types.ts'
+import { ImagesIcon } from "@/components/icons"
+import { GalleryModal } from "@/components/ui/modal"
+import { shallowRef } from "vue"
+import CardContent from "./CardContent.vue"
+import type { ICardWithImageProps } from "./types.ts"
 
 defineProps<ICardWithImageProps>()
 

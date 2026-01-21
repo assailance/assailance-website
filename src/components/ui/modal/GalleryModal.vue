@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ChevronLeftIcon, ChevronRightIcon, LoaderCircleIcon, XIcon } from '@/components/icons'
-import { computed, onUnmounted, ref, useTemplateRef, watch } from 'vue'
-import BaseModal from './BaseModal.vue'
+import { ChevronLeftIcon, ChevronRightIcon, LoaderCircleIcon, XIcon } from "@/components/icons"
+import { computed, onUnmounted, ref, useTemplateRef, watch } from "vue"
+import BaseModal from "./BaseModal.vue"
 
 const model = defineModel<boolean>({ required: true })
 
@@ -9,12 +9,12 @@ const props = defineProps<{
   images: string[]
 }>()
 
-const baseModalRef = useTemplateRef<InstanceType<typeof BaseModal>>('baseModal')
-const imageRef = useTemplateRef<HTMLImageElement>('image')
-const prevButtonRef = useTemplateRef<HTMLButtonElement>('prevButton')
-const nextButtonRef = useTemplateRef<HTMLButtonElement>('nextButton')
+const baseModalRef = useTemplateRef<InstanceType<typeof BaseModal>>("baseModal")
+const imageRef = useTemplateRef<HTMLImageElement>("image")
+const prevButtonRef = useTemplateRef<HTMLButtonElement>("prevButton")
+const nextButtonRef = useTemplateRef<HTMLButtonElement>("nextButton")
 const currentIndex = ref<number>(0)
-const currentEffect = ref<'slide-left' | 'slide-right' | null>(null)
+const currentEffect = ref<"slide-left" | "slide-right" | null>(null)
 const isLoading = ref<boolean>(true)
 
 const scale = ref<number>(1)
@@ -26,8 +26,8 @@ const currentImage = computed(() => props.images[currentIndex.value])
 const currentAlt = computed(() => `Image ${currentIndex.value + 1} of ${props.images.length}`)
 
 const nextImage = () => {
-  imageRef.value?.removeAttribute('style')
-  currentEffect.value = 'slide-left'
+  imageRef.value?.removeAttribute("style")
+  currentEffect.value = "slide-left"
   if (currentIndex.value < props.images.length - 1) {
     currentIndex.value++
   } else {
@@ -36,8 +36,8 @@ const nextImage = () => {
 }
 
 const prevImage = () => {
-  imageRef.value?.removeAttribute('style')
-  currentEffect.value = 'slide-right'
+  imageRef.value?.removeAttribute("style")
+  currentEffect.value = "slide-right"
   if (currentIndex.value > 0) {
     currentIndex.value--
   } else {
@@ -46,14 +46,14 @@ const prevImage = () => {
 }
 
 const handleKeyDown = (e: KeyboardEvent) => {
-  if (e.key === 'ArrowLeft') {
+  if (e.key === "ArrowLeft") {
     e.preventDefault()
     e.stopPropagation()
     prevImage()
     if (document.activeElement !== prevButtonRef.value) {
       prevButtonRef.value?.focus()
     }
-  } else if (e.key === 'ArrowRight') {
+  } else if (e.key === "ArrowRight") {
     e.preventDefault()
     e.stopPropagation()
     nextImage()
@@ -97,21 +97,21 @@ const handleWheel = (e: WheelEvent) => {
     offsetY.value = Math.min(Math.max(offsetY.value, minY), maxY)
   }
 
-  imageRef.value?.setAttribute('style', `transform: translate(${offsetX.value}px, ${offsetY.value}px) scale(${scale.value})`)
+  imageRef.value?.setAttribute("style", `transform: translate(${offsetX.value}px, ${offsetY.value}px) scale(${scale.value})`)
 }
 
 watch(model, value => {
   if (!hasSomeImages.value) return
 
   if (value) {
-    document.addEventListener('keydown', handleKeyDown, true)
+    document.addEventListener("keydown", handleKeyDown, true)
   } else {
-    document.removeEventListener('keydown', handleKeyDown, true)
+    document.removeEventListener("keydown", handleKeyDown, true)
   }
 })
 
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeyDown, true)
+  document.removeEventListener("keydown", handleKeyDown, true)
 })
 </script>
 

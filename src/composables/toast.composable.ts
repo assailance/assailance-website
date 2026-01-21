@@ -1,6 +1,6 @@
-import { inject, provide, ref, type Ref } from 'vue'
+import { inject, provide, ref, type Ref } from "vue"
 
-const TOAST_KEY = Symbol('toast')
+const TOAST_KEY = Symbol("toast")
 const TOAST_DURATION_DEFAULT = 3000
 
 interface Toast {
@@ -31,6 +31,6 @@ export function useToast() {
     toasts: Ref<Toast[]>
     add: (message: string, duration?: number) => void
   }>(TOAST_KEY)
-  if (!toast) throw new Error('toast is not provided')
+  if (!toast) throw new Error("toast is not provided")
   return toast
 }
