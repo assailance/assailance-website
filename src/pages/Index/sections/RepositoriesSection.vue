@@ -7,12 +7,24 @@ import { Card, CardList } from "@/components/ui/card-list"
     <h2 class="mb-4 text-xl">Repositories</h2>
     <!-- Repositories -->
     <CardList>
+      <Card
+        title="PixAI Daily Rewards"
+        title-link="https://github.com/assailance/pixai-daily-rewards"
+        description="Get PixAI's daily reward using Selenium."
+        :tags="['python', 'docker', 'selenium', 'uv']"
+      />
       <Card title="Github README" title-link="https://github.com/assailance/assailance" description="Main github page with more info about me." />
       <Card
         title="Plasma Dotfiles"
         title-link="https://github.com/assailance/plasma-dotfiles"
         description="My KDE Plasma dotfiles and configuration."
         :tags="['KDE', 'X11', 'Wayland']"
+      />
+      <Card
+        title="Backup Scripts"
+        title-link="https://github.com/assailance/backup-scripts"
+        description="Bash scripts for creating backups and sending them to Telegram chat."
+        :tags="['shell', 'bash', 'backup']"
       />
       <Card
         title="First Project"
