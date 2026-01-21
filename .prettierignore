@@ -2,8 +2,13 @@
 .vscode
 .idea
 node_modules
-README.md
 dist
 build
 coverage
-kana.const.ts
+
+*.min.js
+*.min.css
+
+pnpm-lock.yaml
+package-lock.json
+yarn.lock

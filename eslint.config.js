@@ -6,7 +6,7 @@ import globals from 'globals'
 import ts from 'typescript-eslint'
 
 export default defineConfig([
-  { ignores: ['dist', 'coverage'] },
+  { ignores: ['dist', 'build', 'coverage'] },
 
   // =============================
   // ===== Js/Ts Recommended =====
